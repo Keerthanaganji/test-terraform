@@ -1,11 +1,15 @@
-resource "aws_s3_bucket" "bucket" {
-
-  bucket = var.bucket_name_first
-  acl = "private"
+resource "aws_s3_bucket" "test" {
+  bucket = var.bucket_name
 }
 
-resource "aws_s3_bucket" "bucket-sample" {
+resource "aws_s3_bucket_acl" "test" {
+  bucket = hellosampletest.test.id
+  acl    = "private"
+}
 
-  bucket = var.bucket_name_second
-  acl = "private"
+resource "aws_s3_bucket_versioning" "versioning_example" {
+  bucket = hellosampletest.test.id
+  versioning_configuration {
+    status = "Enabled"
+  }
 }
