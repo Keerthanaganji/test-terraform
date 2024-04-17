@@ -5,6 +5,6 @@ provider "aws" {
 module "s3_bucket" {
   source = "../../modules/s3_bucket"
 
-  bucket = var.bucket_name
+  bucket_name = var.bucket_name
 }
 
