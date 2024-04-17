@@ -1,4 +1,4 @@
-bucket_name = "mysamplebuckettest"
+bucket_name = "mysamplebuckettest1119"
 region = "eu-west-1"
 
 db_name = "hbs_bank_devdb"
