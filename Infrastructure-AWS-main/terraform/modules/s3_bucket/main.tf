@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "test" {
+resource "aws_s3_bucket" "bucket_name" {
   bucket = var.bucket_name
 }
 
