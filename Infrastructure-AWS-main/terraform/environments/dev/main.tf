@@ -5,10 +5,22 @@ provider "aws" {
 module "s3_bucket" {
   source = "../../modules/s3_bucket"
 
-  bucket_name_first = var.bucket_name_first
-  bucket_name_second = var.bucket_name_second
+resource "aws_s3_bucket" "example" {
+  bucket = var.bucket_name_first
+}
   
 } 
+resource "aws_s3_bucket_acl" "example" {
+  bucket = module.s3_bucket.bucket_id
+  acl    = "private"
+}
+
+resource "aws_s3_bucket_versioning" "versioning_example" {
+  bucket = module.s3_bucket.bucket_id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
 #### Postgress ####
 provider "aws" {
   region = var.region
@@ -26,6 +38,7 @@ module "postgres_instance" {
   role_arn           = var.role_arn
   cluster_identifier = var.cluster_identifier
   deletion_protection = var.deletion_protection
+  network_type   = var.network_type
 }
 
 
