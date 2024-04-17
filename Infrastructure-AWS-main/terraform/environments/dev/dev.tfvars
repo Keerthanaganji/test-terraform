@@ -12,6 +12,7 @@ db_parameter_group = ""
 db_instance_arn = ""
 cluster_identifier = "hbs-bank-dm-dbcluster-dev"
 deletion_protection = "Disabled"
+network_type  = "IPv4"
 
   
 
