@@ -1,5 +1,5 @@
-
-region = "eu-west-2"
+bucket_name_ = "mysamplebuckettest"
+region = "eu-west-1"
 
 db_name = "hbs_bank_devdb"
 db_engine_version = "15.4"
