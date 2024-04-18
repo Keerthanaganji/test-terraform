@@ -41,28 +41,14 @@ module "aurora_postgresql_v2" {
   engine_version    = var.engine_version
   storage_encrypted = true
   master_username   = var.master_username
-  vpc_security_group_ids  = var.vpc_id
+  id                = var.id
   db_subnet_group_name = var.db_subnet_group_name
-  security_group_rules = {
-    vpc_ingress = {
-      cidr_blocks = var.cidr_blocks
-    }
-  }
-
-  monitoring_interval = 60
-
-  apply_immediately   = true
-  skip_final_snapshot = true
-
-  serverlessv2_scaling_configuration = {
-    min_capacity = 2
-    max_capacity = 10
-  }
-
-  instance_class = "db.serverless"
-  instances = {
-    one = {}
-    two = {}
-  }
-}
+  cidr_blocks         = var.cidr_blocks
+  min_capacity = var.min_capacity
+  max_capacity = var.max_capacity
+  monitoring_interval = var.monitoring_interval
+  apply_immediately   = var.apply_immediately
+  skip_final_snapshot = var.skip_final_snapshot
+  instance_class = var.instance_class
+  
 
