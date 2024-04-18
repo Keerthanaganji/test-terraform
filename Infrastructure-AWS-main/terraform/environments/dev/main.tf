@@ -32,12 +32,6 @@ module "aws_glue_job" {
 ################################################################################
 # PostgreSQL Serverless v2
 ################################################################################
-
-data "aws_rds_engine_version" "postgresql" {
-  engine  = var.engine
-  engine_version = var.engine_version
-}
-
 module "aurora_postgresql_v2" {
   source = "../../module/postgres"
 
