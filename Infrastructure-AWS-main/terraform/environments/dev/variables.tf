@@ -36,7 +36,7 @@ variable "db_subnet_group_name" {
   default     = ""
 }
 
-variable "private_subnets_cidr_blocks" {
+variable "cidr_blocks" {
   description = "List of subnet IDs used by database subnet group created"
   type        = list(string)
   default     = []
@@ -57,6 +57,11 @@ variable "monitoring_interval" {
   description = "The interval, in seconds, between points when Enhanced Monitoring metrics are collected for instances. Set to `0` to disable. Default is `0`"
   type        = number
   default     = 0
+}
+variable "id" {
+  description = "ID of the VPC where to create security group"
+  type        = string
+  default     = ""
 }
 
 
