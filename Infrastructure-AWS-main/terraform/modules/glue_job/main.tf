@@ -8,4 +8,5 @@ resource "aws_glue_job" "this" {
   timeout                = var.timeout
   worker_type            = var.worker_type
   number_of_workers      = var.number_of_workers
+}
  
