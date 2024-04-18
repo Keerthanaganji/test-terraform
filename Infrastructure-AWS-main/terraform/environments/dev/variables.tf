@@ -8,12 +8,6 @@ variable "bucket_name" {
 }
 
 
-variable "db_instance_identifier" {
-  description = "The identifier for the PostgreSQL instance"
-  default     = "example-postgres"
-  type = string
-}
-
 variable "db_name" {
   description = "The name of the database to create within the PostgreSQL instance"
   default     = "exampledb"
@@ -31,6 +25,20 @@ variable "db_engine_version" {
   default     = "12.5"
   type = string
 }
+
+variable "deletion_protection" {
+  description = "The engine version for the PostgreSQL instance"
+  type = string
+}
+variable "network_type" {
+  description = "The engine version for the PostgreSQL instance"
+  type = string
+}
+variable "cluster_id" {
+  description = "The engine version for the PostgreSQL instance"
+  type = string
+}
+
 
 
 
