@@ -1,5 +1,5 @@
 resource "aws_glue_job" "this" {
-  name                   = local.full_name
+  name                   = var.full_name
   role_arn               = var.create_role 
   connections            = var.connections
   description            = var.description
