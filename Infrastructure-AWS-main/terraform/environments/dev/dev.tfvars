@@ -9,7 +9,7 @@ deletion_protection = "Disabled"
 network_type  = "IPv4"
 cluster_id  = "dbcluster-dev-test"
 
-full_name                   = "my-glue-job"
+full_name              = "glue-job"
 create_role            = true
 connections            = ["connection1", "connection2"]
 description            = "My Glue job description"
@@ -20,6 +20,7 @@ create_security_configuration = true
 worker_type            = "G.1X"
 number_of_workers      = 2
 python_version         = 3
+script_location        = "s3://mysamplebuckettest1119/provider aws.txt"
 
 
   
