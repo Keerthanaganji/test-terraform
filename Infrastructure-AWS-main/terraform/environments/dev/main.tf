@@ -27,14 +27,14 @@ module "aws_db_instance"{
 module "my_glue_job" {
   source = "../../modules/glue_job"
 
-  name                   = "my-glue-job"
-  connections            = ["connection1", "connection2"]
-  description            = "My Glue job description"
-  glue_version           = "1.0"
-  max_retries            = 3
-  timeout                = 60
-  create_security_configuration = true
-  worker_type            = "G.1X"
-  number_of_workers      = 2
+  name                   = var.full_name
+  role_arn               = var.create_role 
+  connections            = var.connections
+  description            = var.description
+  glue_version           = var.glue_version
+  max_retries            = var.max_retries
+  timeout                = var.timeout
+  worker_type            = var.worker_type
+  number_of_workers      = var.number_of_workers
  }
 
