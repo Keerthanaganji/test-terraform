@@ -10,7 +10,7 @@ module "aws_s3_bucket" {
 
 ### Postgress ####
 
-module "postgres" {
+module "aws_db_instance" {
   source = "../../modules/postgres"
 
   db_name             = var.db_name
