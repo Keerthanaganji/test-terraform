@@ -13,11 +13,16 @@ variable "db_name" {
   default     = "exampledb"
   type = string
 }
+variable "engine" {
+  description = "The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`"
+  type        = string
+  default     = null
+}
 
-variable "db_password" {
-  description = "The password for accessing the PostgreSQL database"
-  default     = "your_password"
-  type = string
+variable "engine_mode" {
+  description = "The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`"
+  type        = string
+  default     = "provisioned"
 }
 
 variable "db_engine_version" {
@@ -25,19 +30,24 @@ variable "db_engine_version" {
   default     = "12.5"
   type = string
 }
+variable "db_subnet_group_name" {
+  description = "The name of the subnet group name (existing or created)"
+  type        = string
+  default     = ""
+}
 
-variable "deletion_protection" {
-  description = "The engine version for the PostgreSQL instance"
-  type = string
+variable "subnets" {
+  description = "List of subnet IDs used by database subnet group created"
+  type        = list(string)
+  default     = []
 }
-variable "network_type" {
-  description = "The engine version for the PostgreSQL instance"
-  type = string
+
+variable "apply_immediately" {
+  description = "Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`"
+  type        = bool
+  default     = null
 }
-variable "cluster_id" {
-  description = "The engine version for the PostgreSQL instance"
-  type = string
-}
+
 
 variable "name" {
   description = "The name of the Glue job"
