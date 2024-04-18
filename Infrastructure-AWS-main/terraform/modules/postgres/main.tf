@@ -1,6 +1,6 @@
 ### Postgress ####
 
-resource "postgres" {
+resource ""aws_db_instance"  "postgresql" {
   source = "../../modules/postgres"
 
   db_name             = var.db_name
