@@ -11,6 +11,7 @@ resource "aws_glue_job" "job" {
   number_of_workers      = var.number_of_workers
 
   command {
+    script_location = "placeholder" 
     python_version  = var.python_version
   }
 
