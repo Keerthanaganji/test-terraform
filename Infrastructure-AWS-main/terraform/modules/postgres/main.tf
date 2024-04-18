@@ -6,25 +6,25 @@ resource "aws_rds_cluster" "postgresql" {
   storage_encrypted = true
   master_username   = var.master_username
 
-  vpc_id               = var.vpc_id
+  id               = var.id
   db_subnet_group_name = var.db_subnet_group_name
   security_group_rules = {
     vpc_ingress = {
-      cidr_blocks = var.private_subnets_cidr_blocks
+      cidr_blocks = var.cidr_blocks
     }
   }
 
-  monitoring_interval = 60
+  monitoring_interval = var.monitoring_interval
 
-  apply_immediately   = true
-  skip_final_snapshot = true
+  apply_immediately   = var.apply_immediately
+  skip_final_snapshot = var.skip_final_snapshot
 
   serverlessv2_scaling_configuration = {
-    min_capacity = 2
-    max_capacity = 10
+    min_capacity = var.min_capacity
+    max_capacity = var.max_capacity
   }
 
-  instance_class = "db.serverless"
+  instance_class = var.instance_class
   instances = {
     one = {}
     two = {}
