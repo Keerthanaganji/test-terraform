@@ -12,7 +12,7 @@ module "aws_s3_bucket" {
 ### glue Job ###
 ####################################################################################################
 
-module "my_glue_job" {
+module "aws_glue_job" {
   source = "../../modules/glue_job"
 
   name                   = var.full_name
