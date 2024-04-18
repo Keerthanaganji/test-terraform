@@ -18,14 +18,20 @@ script_location        = "s3://mysamplebuckettest1119/provider aws.txt"
 # PostgreSQL Serverless v2
 ################################################################################
 
-engine  = "aurora-postgresql"
+engine            = "aurora-postgresql"
 engine_mode       = "provisioned"
-engine_version  = "15.6"
-db_name  = "postgresqlv2"
+engine_version    = "15.6"
+db_name           = "postgresqlv2"
 master_username   = "rootuser"
-id               = "vpc-0c62dcc69ca138dc0"
+id                = "vpc-0c62dcc69ca138dc0"
 db_subnet_group_name = "test"
-cidr_blocks = "172.31.48.0/20"
+cidr_blocks       = "172.31.48.0/20"
+min_capacity      = "0.5"
+max_capacity      ="8"
+monitoring_interval  = "60"
+apply_immediately    = "true"
+skip_final_snapshot  = "true"
+instance_class       = "serverless"
 
 
 
