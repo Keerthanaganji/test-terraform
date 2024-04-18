@@ -10,3 +10,4 @@ resource "postgres" {
   deletion_protection = var.deletion_protection
   network_type        = var.network_type
   cluster_id          = var.cluster_id
+}
