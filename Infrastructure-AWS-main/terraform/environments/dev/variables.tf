@@ -84,6 +84,10 @@ variable "number_of_workers" {
   description = "The number of workers to allocate for the Glue job"
 }
 
+variable "script_location" {
+  description = "The S3 path to the script that the Glue job runs"
+}
+
 
 variable "python_version" {
   type        = number
