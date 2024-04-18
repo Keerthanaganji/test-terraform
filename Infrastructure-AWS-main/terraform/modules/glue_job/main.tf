@@ -10,5 +10,11 @@ resource "aws_glue_job" "job" {
   worker_type            = var.worker_type
   number_of_workers      = var.number_of_workers
 
+  command {
+    name            = "glueetl"
+    script_location = var.script_location
+    python_version  = var.python_version
+  }
+
 }
  
