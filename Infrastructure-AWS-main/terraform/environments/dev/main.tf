@@ -65,4 +65,5 @@ module "aurora_postgresql_v2" {
     one = {}
     two = {}
   }
+}
 
