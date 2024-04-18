@@ -34,8 +34,8 @@ module "aws_glue_job" {
 ################################################################################
 
 data "aws_rds_engine_version" "postgresql" {
-  engine  = "aurora-postgresql"
-  version = "14.5"
+  engine  = var.engine
+  engine_version = var.engine_version
 }
 
 module "aurora_postgresql_v2" {
