@@ -1,42 +1,17 @@
-################################################################################
-# PostgreSQL Serverless v2
-################################################################################
-
-data "aws_rds_engine_version" "postgresql" {
-  engine  = var.engine
-  engine_version = var.engine_version
+resource "aws_rds_cluster" "postgresql" {
+  cluster_identifier      = var.cluster_identifier
+  database_name           = var.db_name
+  engine                  = var.engine
+  engine_mode             = var.engine_mode
+  engine_version          = var.engine_version
+  master_username         = var.master_username
+  storage_encrypted       = var.storage_encrypted
+  vpc_id                  = var.vpc_id
+  db_subnet_group_name    = var.db_subnet_group_name
+  monitoring_interval     = var.monitoring_interval
+  apply_immediately       = var.apply_immediately
+  skip_final_snapshot     = var.skip_final_snapshot
+  deletion_protection     = var.deletion_protection
+  min_capacity            = var.min_capacity
+  max_capacity            = var.max_capacity
 }
-
-module "aurora_postgresql_v2" {
-  source = "../../module/postgres"
-
-  db_name           = var.db_name
-  engine            = var.engine
-  engine_mode       = var.engine_mode
-  engine_version    = var.engine_version
-  storage_encrypted = true
-  master_username   = var.master_username
-
-  vpc_id               = var.vpc_id
-  db_subnet_group_name = var.db_subnet_group_name
-  security_group_rules = {
-    vpc_ingress = {
-      cidr_blocks = var.private_subnets_cidr_blocks
-    }
-  }
-
-  monitoring_interval = 60
-
-  apply_immediately   = true
-  skip_final_snapshot = true
-
-  serverlessv2_scaling_configuration = {
-    min_capacity = 2
-    max_capacity = 10
-  }
-
-  instance_class = "db.serverless"
-  instances = {
-    one = {}
-    two = {}
-  }
