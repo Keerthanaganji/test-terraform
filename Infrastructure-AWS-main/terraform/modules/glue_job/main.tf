@@ -1,4 +1,4 @@
-resource "aws_glue_job" "this" {
+resource "aws_glue_job" "job" {
   name                   = var.name
   role_arn               = var.create_role 
   connections            = var.connections
@@ -9,5 +9,6 @@ resource "aws_glue_job" "this" {
   security_configuration = var.security_configuration
   worker_type            = var.worker_type
   number_of_workers      = var.number_of_workers
+
 }
  
