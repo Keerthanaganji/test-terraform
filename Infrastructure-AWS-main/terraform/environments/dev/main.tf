@@ -28,7 +28,6 @@ module "my_glue_job" {
   source = "./modules/glue_job"
 
   name                   = "my-glue-job"
-  create_role            = true
   connections            = ["connection1", "connection2"]
   description            = "My Glue job description"
   glue_version           = "1.0"
@@ -37,10 +36,5 @@ module "my_glue_job" {
   create_security_configuration = true
   worker_type            = "G.1X"
   number_of_workers      = 2
-  tags                   = {
-    environment = "production"
-  }
-  script_location        = "s3://my-bucket/scripts/my_script.py"
-  python_version         = "3"
-}
+ 
 
