@@ -9,5 +9,17 @@ deletion_protection = "Disabled"
 network_type  = "IPv4"
 cluster_id  = "dbcluster-dev-test"
 
+name                   = "my-glue-job"
+create_role            = true
+connections            = ["connection1", "connection2"]
+description            = "My Glue job description"
+glue_version           = "1.0"
+max_retries            = 3
+timeout                = 60
+create_security_configuration = true
+worker_type            = "G.1X"
+number_of_workers      = 2
+
+
   
 
