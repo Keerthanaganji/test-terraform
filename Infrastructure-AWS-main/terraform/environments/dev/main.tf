@@ -25,7 +25,7 @@ module "aws_db_instance"{
 ### glue Job ###
 
 module "my_glue_job" {
-  source = "./modules/glue_job"
+  source = "../../modules/glue_job"
 
   name                   = "my-glue-job"
   connections            = ["connection1", "connection2"]
