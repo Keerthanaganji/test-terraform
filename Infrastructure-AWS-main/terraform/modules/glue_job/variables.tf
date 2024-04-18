@@ -43,3 +43,14 @@ variable "number_of_workers" {
   description = "The number of workers to allocate for the Glue job"
 }
 
+variable "python_version" {
+  type        = number
+  default     = 3
+  description = "(Optional) The Python version being used to execute a Python shell job."
+
+  validation {
+    condition     = contains([2, 3], var.python_version)
+    error_message = "Allowed values are 2 or 3."
+  }
+}
+
