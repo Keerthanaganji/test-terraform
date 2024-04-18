@@ -23,9 +23,9 @@ engine_mode       = "provisioned"
 engine_version  = "15.6"
 db_name  = "postgresqlv2"
 master_username   = "rootuser"
-vpc_id               = "vpc-0c62dcc69ca138dc0"
+id               = "vpc-0c62dcc69ca138dc0"
 db_subnet_group_name = "test"
-private_subnets_cidr_blocks = "sg-01f9d5f3a04f634bc"
+cidr_blocks = "172.31.48.0/20"
 
 
 
