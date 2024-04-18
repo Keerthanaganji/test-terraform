@@ -41,18 +41,18 @@ data "aws_rds_engine_version" "postgresql" {
 module "aurora_postgresql_v2" {
   source = "../../module/postgres"
 
-  name              = "postgresqlv2"
-  engine            = data.aws_rds_engine_version.postgresql.engine
-  engine_mode       = "provisioned"
-  engine_version    = data.aws_rds_engine_version.postgresql.version
+  db_name           = var.db_name
+  engine            = var.engine
+  engine_mode       = var.engine_mode
+  engine_version    = var.engine_version
   storage_encrypted = true
-  master_username   = "root"
+  master_username   = var.master_username
 
-  vpc_id               = module.vpc.vpc_id
-  db_subnet_group_name = module.vpc.database_subnet_group_name
+  vpc_id               = var.vpc_id
+  db_subnet_group_name = var.db_subnet_group_name
   security_group_rules = {
     vpc_ingress = {
-      cidr_blocks = module.vpc.private_subnets_cidr_blocks
+      cidr_blocks = var.private_subnets_cidr_blocks
     }
   }
 
