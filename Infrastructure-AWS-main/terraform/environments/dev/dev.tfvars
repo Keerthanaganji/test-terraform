@@ -9,7 +9,7 @@ deletion_protection = "Disabled"
 network_type  = "IPv4"
 cluster_id  = "dbcluster-dev-test"
 
-name                   = "my-glue-job"
+full_name                   = "my-glue-job"
 create_role            = true
 connections            = ["connection1", "connection2"]
 description            = "My Glue job description"
