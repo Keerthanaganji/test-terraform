@@ -25,9 +25,9 @@ variable "engine_mode" {
   default     = "provisioned"
 }
 
-variable "db_engine_version" {
+variable "engine_version" {
   description = "The engine version for the PostgreSQL instance"
-  default     = "12.5"
+  default     = "15.6"
   type = string
 }
 variable "db_subnet_group_name" {
@@ -46,6 +46,17 @@ variable "apply_immediately" {
   description = "Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`"
   type        = bool
   default     = null
+}
+variable "instance_class" {
+  description = "Instance type to use at master instance. Note: if `autoscaling_enabled` is `true`, this will be the same instance class used on instances created by autoscaling"
+  type        = string
+  default     = ""
+}
+
+variable "monitoring_interval" {
+  description = "The interval, in seconds, between points when Enhanced Monitoring metrics are collected for instances. Set to `0` to disable. Default is `0`"
+  type        = number
+  default     = 0
 }
 
 
