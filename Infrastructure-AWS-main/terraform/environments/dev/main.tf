@@ -33,7 +33,7 @@ module "aws_glue_job" {
 # PostgreSQL Serverless v2
 ################################################################################
 module "aurora_postgresql_v2" {
-  source = "../../module/postgres"
+  source = "../../modules/postgres"
 
   db_name           = var.db_name
   engine            = var.engine
