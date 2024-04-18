@@ -16,6 +16,7 @@ description            = "My Glue job description"
 glue_version           = "1.0"
 max_retries            = 3
 timeout                = 60
+create_security_configuration = true
 worker_type            = "G.1X"
 number_of_workers      = 2
 
