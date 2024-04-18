@@ -1,4 +1,4 @@
-variable "full_name" {
+variable "name" {
   description = "The name of the Glue job"
 }
 
@@ -31,7 +31,7 @@ variable "timeout" {
   description = "The job timeout in minutes"
 }
 
-variable "create_security_configuration" {
+variable "security_configuration" {
   description = "The ID of an existing security configuration for the Glue job"
 }
 
