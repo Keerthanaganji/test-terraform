@@ -50,5 +50,6 @@ module "aurora_postgresql_v2" {
   apply_immediately   = var.apply_immediately
   skip_final_snapshot = var.skip_final_snapshot
   instance_class = var.instance_class
+}
   
 
