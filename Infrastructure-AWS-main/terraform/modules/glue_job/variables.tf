@@ -48,15 +48,3 @@ variable "number_of_workers" {
   description = "The number of workers to allocate for the Glue job"
 }
 
-variable "tags" {
-  description = "A map of tags to assign to the Glue job"
-  default     = {}
-}
-
-variable "script_location" {
-  description = "The S3 path to the script that the Glue job runs"
-}
-
-variable "python_version" {
-  description = "The Python version to use for the Glue job"
-}
