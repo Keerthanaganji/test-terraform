@@ -31,11 +31,6 @@ variable "timeout" {
   description = "The job timeout in minutes"
 }
 
-variable "create_security_configuration" {
-  description = "Whether to create a new security configuration for the Glue job"
-  default     = false
-}
-
 variable "security_configuration" {
   description = "The ID of an existing security configuration for the Glue job"
 }
