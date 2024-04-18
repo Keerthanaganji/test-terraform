@@ -8,10 +8,4 @@ resource "aws_glue_job" "this" {
   timeout                = var.timeout
   worker_type            = var.worker_type
   number_of_workers      = var.number_of_workers
-  tags                   = local.tags
-
-  command {
-    name            = "glueetl"
-    script_location = var.script_location
-    python_version  = var.python_version
-  }
+ 
