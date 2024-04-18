@@ -21,3 +21,26 @@ module "aws_db_instance"{
   network_type        = var.network_type
   cluster_id          = var.cluster_id
 }
+
+### glue Job ###
+
+module "my_glue_job" {
+  source = "./modules/glue_job"
+
+  name                   = "my-glue-job"
+  create_role            = true
+  connections            = ["connection1", "connection2"]
+  description            = "My Glue job description"
+  glue_version           = "1.0"
+  max_retries            = 3
+  timeout                = 60
+  create_security_configuration = true
+  worker_type            = "G.1X"
+  number_of_workers      = 2
+  tags                   = {
+    environment = "production"
+  }
+  script_location        = "s3://my-bucket/scripts/my_script.py"
+  python_version         = "3"
+}
+
