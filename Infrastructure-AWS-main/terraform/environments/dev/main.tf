@@ -38,7 +38,7 @@ module "aurora_postgresql_v2" {
   db_name           = var.db_name
   engine            = var.engine
   engine_mode       = var.engine_mode
-  engine_version    = var.engine_version
+  version    = var.version
   storage_encrypted = true
   master_username   = var.master_username
   id                = var.id
