@@ -36,5 +36,5 @@ module "my_glue_job" {
   create_security_configuration = true
   worker_type            = "G.1X"
   number_of_workers      = 2
- 
+ }
 
