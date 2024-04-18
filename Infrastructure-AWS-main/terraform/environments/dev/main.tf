@@ -41,12 +41,11 @@ module "aurora_postgresql_v2" {
   engine_version    = var.engine_version
   storage_encrypted = true
   master_username   = var.master_username
-
-  vpc_id               = var.vpc_id
+  vpc_security_group_ids  = var.vpc_id
   db_subnet_group_name = var.db_subnet_group_name
   security_group_rules = {
     vpc_ingress = {
-      cidr_blocks = var.private_subnets_cidr_blocks
+      cidr_blocks = var.cidr_blocks
     }
   }
 
