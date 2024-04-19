@@ -47,16 +47,11 @@ variable "apply_immediately" {
   type        = bool
   default     = null
 }
-variable "instance_class" {
-  description = "Instance type to use at master instance. Note: if `autoscaling_enabled` is `true`, this will be the same instance class used on instances created by autoscaling"
-  type        = string
-  default     = ""
-}
 
 variable "monitoring_interval" {
   description = "The interval, in seconds, between points when Enhanced Monitoring metrics are collected for instances. Set to `0` to disable. Default is `0`"
   type        = number
-  default     = 0
+  default     = 60
 }
 variable "id" {
   description = "ID of the VPC where to create security group"
