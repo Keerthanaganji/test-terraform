@@ -21,9 +21,9 @@ resource "aws_rds_cluster" "postgresql" {
 }
 
 resource "aws_rds_cluster_instance" "aurora_instance"{
-  cluster_identifier = "aurora_cluster"
+  cluster_identifier = "aurora-cluster"
   instance_class = "db.r6g.large"
-  identifier   = "aurora_instance"
+  identifier   = "aurora-instance"
   monitoring_interval = var.monitoring_interval
   engine            = var.engine
 }
@@ -35,9 +35,4 @@ resource "aws_vpc" "sggroup"{
 resource "aws_subnet" "mysg"{
   vpc_id = "vpc-0c62dcc69ca138dc0"
   cidr_block = "172.31.48.0/20"
-  security_group_rules = {
-    vpc_ingress = {
-      cidr_block = "172.31.48.0/20"
-    }
-}
 }
