@@ -1,5 +1,6 @@
 resource "aws_glue_job" "job" {
   name                   = var.name
+  role_arn               = "arn:aws:iam::992382526479:role/glue_etl_job"
   connections            = var.connections
   description            = var.description
   glue_version           = var.glue_version
