@@ -28,7 +28,7 @@ resource "aws_rds_cluster_instance" "aurora_instance"{
   engine            = var.engine
 }
 
-resurce "aws_vpc" "sggroup"{
+resource "aws_vpc" "sggroup"{
   cidr_block = "172.31.0.0/16"
 }
 
