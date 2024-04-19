@@ -78,9 +78,3 @@ variable "monitoring_interval" {
   type        = number
   default     = 0
 }
-
-variable "scaling_configuration" {
-  description = "Map of nested attributes with serverless v2 scaling properties. Only valid when `engine_mode` is set to `provisioned`"
-  type        = map(string)
-  default     = {}
-}
