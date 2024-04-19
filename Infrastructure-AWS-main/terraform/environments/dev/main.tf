@@ -42,7 +42,7 @@ module "aurora_postgresql_v2" {
   master_username   = var.master_username
   id                = var.id
   db_subnet_group_name = var.db_subnet_group_name
-  cidr_blocks         = var.cidr_blocks
+  cidr_block        = var.cidr_block
   allocated_storage = var.allocated_storage
   max_allocated_storage = var.max_allocated_storage
   monitoring_interval = var.monitoring_interval
