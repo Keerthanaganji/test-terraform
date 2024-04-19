@@ -1,9 +1,12 @@
-resource "aws_s3_bucket" "raw_bucket" {
-  bucket = var.raw_bucket_name
+resource "aws_s3_bucket" "bucket" {
+ 
+  bucket = var.bucket_name_first
+  acl = "private"
 }
-
-resource "aws_s3_bucket_versioning" "versioning_bucket" {
-  bucket = var.artifact_bucket_name
+ 
+resource "aws_s3_bucket" "bucket-sample" {
+ 
+  bucket = var.bucket_name_second
   versioning_configuration {
     status = "Enabled"
   }
