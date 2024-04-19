@@ -5,7 +5,8 @@ provider "aws" {
 module "aws_s3_bucket" {
   source = "../../modules/s3_bucket"
 
-  bucket_name = var.bucket_name
+  raw_bucket_name = var.raw_bucket_name
+  artifact_bucket_name = var.artifact_bucket_name
 }
 
 ######################################################################################################
@@ -28,25 +29,5 @@ module "aws_glue_job" {
   python_version  = var.python_version
  }
 
-################################################################################
-# PostgreSQL Serverless v2
-################################################################################
-module "aurora_postgresql_v2" {
-  source = "../../modules/postgres"
-
-  database_name           = var.database_name
-  engine            = var.engine
-  engine_mode       = var.engine_mode
-  engine_version    = var.engine_version
-  master_username   = var.master_username
-  id                = var.id
-  db_subnet_group_name = var.db_subnet_group_name
-  cidr_block        = var.cidr_block
-  allocated_storage = var.allocated_storage
-  max_allocated_storage = var.max_allocated_storage
-  monitoring_interval = var.monitoring_interval
-  apply_immediately   = var.apply_immediately
-  skip_final_snapshot = var.skip_final_snapshot
-}
   
 
