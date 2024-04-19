@@ -1,12 +1,11 @@
 resource "aws_rds_cluster" "postgresql" {
-  cluster_identifier  = "aurara_cluster"
+  cluster_identifier  = "aurora-cluster"
   database_name           = var.database_name
   engine            = var.engine
   engine_mode       = var.engine_mode
   engine_version    = var.engine_version
   master_username   = var.master_username
 
-  id               = var.id
   db_subnet_group_name = var.db_subnet_group_name
 
 
