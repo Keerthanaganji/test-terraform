@@ -2,11 +2,11 @@ provider "aws" {
   region = var.region
 }
 
-module "aws_s3_bucket" {
+module "s3_bucket" {
   source = "../../modules/s3_bucket"
-
-  bucket = var.raw_bucket_name
-  bucket = var.artifact_bucket_name
+ 
+  bucket_name_first = var.bucket_name_first
+  bucket_name_second = var.bucket_name_second
 }
 
 ######################################################################################################
