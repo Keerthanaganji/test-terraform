@@ -18,7 +18,7 @@ resource "aws_rds_cluster" "postgresql" {
   apply_immediately   = var.apply_immediately
   skip_final_snapshot = var.skip_final_snapshot
 
- scaling_configuration = {
+ scaling_configuration {
     allocated_storage = var.allocated_storage
     max_allocated_storage = var.max_allocated_storage
   }
@@ -30,4 +30,8 @@ resource "aws_rds_cluster_instance" "aurora_instance"{
   instance_class = "db.r6g.large"
   identifier   = "aurora_instance"
   monitoring_interval = var.monitoring_interval
+  engine            = var.engine
 }
+
+resurce "aws_vpc" "sggroup"{
+  cidr_block = 
