@@ -1,4 +1,5 @@
 resource "aws_rds_cluster" "postgresql" {
+  cluster_identifier  = "aurara_cluster"
   database_name           = var.database_name
   engine            = var.engine
   engine_mode       = var.engine_mode
@@ -23,10 +24,9 @@ resource "aws_rds_cluster" "postgresql" {
     max_allocated_storage = var.max_allocated_storage
   }
 
-  instance_class = var.instance_class
-  instances = {
-    one = {}
-    two = {}
-  }
-
 }
+
+resource "aws_rds_cluster_instance" "aurora_instance"{
+  cluster_identifier = "aurora_cluster"
+  instance_class = "db.r6g.large"
+  identifier   = "aurora_instance"
