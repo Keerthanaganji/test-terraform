@@ -3,7 +3,6 @@ resource "aws_rds_cluster" "postgresql" {
   engine            = var.engine
   engine_mode       = var.engine_mode
   engine_version    = var.engine_version
-  storage_encrypted = true
   master_username   = var.master_username
 
   id               = var.id
@@ -20,8 +19,8 @@ resource "aws_rds_cluster" "postgresql" {
   skip_final_snapshot = var.skip_final_snapshot
 
   serverlessv2_scaling_configuration = {
-    min_capacity = var.min_capacity
-    max_capacity = var.max_capacity
+    allocated_storage = var.allocated_storage
+    max_allocated_storage = var.max_allocated_storage
   }
 
   instance_class = var.instance_class
