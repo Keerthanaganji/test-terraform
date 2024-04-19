@@ -1,6 +1,6 @@
 resource "aws_glue_job" "job" {
   name                   = var.name
-  role_arn               = var.create_role 
+  role_arn               = var.role_arn
   connections            = var.connections
   description            = var.description
   glue_version           = var.glue_version
