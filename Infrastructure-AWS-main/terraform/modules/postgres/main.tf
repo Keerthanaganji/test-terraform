@@ -1,5 +1,5 @@
 resource "aws_rds_cluster" "postgresql" {
-  db_name           = var.db_name
+  database_name           = var.database_name
   engine            = var.engine
   engine_mode       = var.engine_mode
   engine_version    = var.engine_version
