@@ -1,7 +1,7 @@
 bucket_name = "mysamplebuckettest1119"
 region = "eu-west-1"
 
-full_name              = "glue-job"
+name              = "glue-job"
 create_role            = true
 connections            = ["connection1", "connection2"]
 description            = "My Glue job description"
@@ -12,7 +12,7 @@ create_security_configuration = true
 worker_type            = "G.1X"
 number_of_workers      = 2
 python_version         = 3
-script_location        = "s3://mysamplebuckettest1119/provider aws.txt"
+script_location        = "s3://mysamplebuckettest1119/provider_aws.txt"
 
 ################################################################################
 # PostgreSQL Serverless v2
