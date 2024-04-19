@@ -79,12 +79,6 @@ variable "monitoring_interval" {
   default     = 0
 }
 
-variable "instance_class" {
-  description = "Instance type to use at master instance. Note: if `autoscaling_enabled` is `true`, this will be the same instance class used on instances created by autoscaling"
-  type        = string
-  default     = ""
-}
-
 variable "instances" {
   description = "Map of cluster instances and any specific/overriding attributes to be created"
   type        = any
