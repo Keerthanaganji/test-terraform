@@ -1,4 +1,5 @@
-bucket_name = "mysamplebuckettest1119"
+raw_bucket_name = "rawbucket"
+artifact_bucket_name = "artifactbucket"
 region = "eu-west-1"
 
 name              = "glue-job"
