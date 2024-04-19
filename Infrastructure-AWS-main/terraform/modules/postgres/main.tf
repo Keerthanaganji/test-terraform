@@ -15,8 +15,8 @@ resource "aws_rds_cluster" "postgresql" {
   skip_final_snapshot = var.skip_final_snapshot
 
  scaling_configuration {
-    allocated_storage = var.allocated_storage
-    max_allocated_storage = var.max_allocated_storage
+    min_capacity = "1"
+    max_capacity = "8"
   }
 }
 
