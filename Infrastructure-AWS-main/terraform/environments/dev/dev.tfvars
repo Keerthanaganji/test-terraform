@@ -2,7 +2,6 @@ bucket_name = "mysamplebuckettest1119"
 region = "eu-west-1"
 
 name              = "glue-job"
-role_arn            = true
 connections            = ["connection1", "connection2"]
 description            = "My Glue job description"
 glue_version           = "1.0"
