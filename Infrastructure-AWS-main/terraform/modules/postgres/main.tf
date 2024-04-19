@@ -8,10 +8,6 @@ resource "aws_rds_cluster" "postgresql" {
 
   id               = var.id
   db_subnet_group_name = var.db_subnet_group_name
-  security_group_rules = {
-    vpc_ingress = {
-      cidr_blocks = var.cidr_blocks
-    }
   }
 
 
@@ -34,4 +30,14 @@ resource "aws_rds_cluster_instance" "aurora_instance"{
 }
 
 resurce "aws_vpc" "sggroup"{
-  cidr_block = 
+  cidr_block = "172.31.0.0/16"
+}
+
+resource "aws_subnet" "mysg"{
+  vpc_id = "vpc-0c62dcc69ca138dc0"
+  cidr_block = "172.31.48.0/20"
+  security_group_rules = {
+    vpc_ingress = {
+      cidr_block = "172.31.48.0/20"
+    }
+}
