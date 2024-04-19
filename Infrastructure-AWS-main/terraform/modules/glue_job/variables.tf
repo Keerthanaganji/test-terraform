@@ -2,11 +2,6 @@ variable "name" {
   description = "The name of the Glue job"
 }
 
-variable "create_role" {
-  description = "Whether to create a new IAM role for the Glue job"
-  default     = false
-}
-
 variable "role_arn" {
   description = "The ARN of an existing IAM role for the Glue job"
 }
