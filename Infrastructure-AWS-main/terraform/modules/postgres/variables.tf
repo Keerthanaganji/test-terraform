@@ -79,13 +79,7 @@ variable "monitoring_interval" {
   default     = 0
 }
 
-variable "instances" {
-  description = "Map of cluster instances and any specific/overriding attributes to be created"
-  type        = any
-  default     = {}
-}
-
-variable "serverlessv2_scaling_configuration" {
+variable "scaling_configuration" {
   description = "Map of nested attributes with serverless v2 scaling properties. Only valid when `engine_mode` is set to `provisioned`"
   type        = map(string)
   default     = {}
