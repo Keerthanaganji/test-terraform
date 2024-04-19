@@ -36,7 +36,7 @@ variable "db_subnet_group_name" {
   default     = ""
 }
 
-variable "cidr_blocks" {
+variable "cidr_block" {
   description = "List of subnet IDs used by database subnet group created"
   type        = list(string)
   default     = []
