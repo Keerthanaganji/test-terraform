@@ -1,9 +1,9 @@
-variable "raw_bucket_name" {
+variable "bucket_name_first" {
   type = string
-  description = "Name of the first S3 Bucket"
-}
-
-variable "artifact_bucket_name" {
+  description = "Name of the first s3 Bucketb"
+}  
+ 
+variable "bucket_name_second" {
   type = string
-  description = "Name of the first S3 Bucket"
+  description = "Name of the second s3 Bucketb"
 }
