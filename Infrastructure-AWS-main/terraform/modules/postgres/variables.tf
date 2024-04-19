@@ -9,6 +9,12 @@ variable "engine" {
   default     = null
 }
 
+variable "id" {
+  description = "ID of the VPC where to create security group"
+  type        = string
+  default     = ""
+}
+
 variable "engine_mode" {
   description = "The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`"
   type        = string
@@ -26,7 +32,7 @@ variable "db_subnet_group_name" {
   default     = ""
 }
 
-variable "private_subnets_cidr_blocks" {
+variable "cidr_blocks" {
   description = "List of subnet IDs used by database subnet group created"
   type        = list(string)
   default     = []
@@ -41,6 +47,18 @@ variable "instance_class" {
   description = "Instance type to use at master instance. Note: if `autoscaling_enabled` is `true`, this will be the same instance class used on instances created by autoscaling"
   type        = string
   default     = ""
+}
+
+variable "allocated_storage" {
+  description = "The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster. (This setting is required to create a Multi-AZ DB cluster)"
+  type        = number
+  default     = null
+}
+
+variable "max_allocated_storage" {
+  description = "The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster. (This setting is required to create a Multi-AZ DB cluster)"
+  type        = number
+  default     = null
 }
 
 variable "monitoring_interval" {
