@@ -2,10 +2,6 @@ variable "name" {
   description = "The name of the Glue job"
 }
 
-variable "role_arn" {
-  description = "The ARN of an existing IAM role for the Glue job"
-}
-
 variable "connections" {
   description = "The list of connections used by the Glue job"
 }
