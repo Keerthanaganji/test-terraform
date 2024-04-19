@@ -75,6 +75,16 @@ variable "max_allocated_storage" {
   default     = null
 }
 
+variable "master_username" {
+  description = "Username for the master DB user. Required unless `snapshot_identifier` or `replication_source_identifier` is provided or unless a `global_cluster_identifier` is provided when the cluster is the secondary cluster of a global database"
+  type        = string
+  default     = null
+}
+variable "skip_final_snapshot" {
+  description = "Determines whether a final snapshot is created before the cluster is deleted. If true is specified, no snapshot is created"
+  type        = bool
+  default     = false
+}
 
 variable "name" {
   description = "The name of the Glue job"
