@@ -5,7 +5,7 @@ resource "aws_s3_bucket" "bucket" {
  
 resource "aws_s3_bucket_versioning" "versioning_sample" {
  
- bucket = var.bucket_name_second
+ bucket = module.s3_bucket.bucket_id
   versioning_configuration {
     status = "Enabled"
   }
