@@ -53,6 +53,18 @@ variable "instance_class" {
   default     = ""
 }
 
+variable "instances" {
+  description = "Map of cluster instances and any specific/overriding attributes to be created"
+  type        = any
+  default     = {}
+}
+
+variable "serverlessv2_scaling_configuration" {
+  description = "Map of nested attributes with serverless v2 scaling properties. Only valid when `engine_mode` is set to `provisioned`"
+  type        = map(string)
+  default     = {}
+}
+
 variable "monitoring_interval" {
   description = "The interval, in seconds, between points when Enhanced Monitoring metrics are collected for instances. Set to `0` to disable. Default is `0`"
   type        = number
