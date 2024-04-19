@@ -5,8 +5,8 @@ provider "aws" {
 module "aws_s3_bucket" {
   source = "../../modules/s3_bucket"
 
-  raw_bucket_name = var.raw_bucket_name
-  artifact_bucket_name = var.artifact_bucket_name
+  bucket = var.raw_bucket_name
+  bucket = var.artifact_bucket_name
 }
 
 ######################################################################################################
