@@ -18,7 +18,7 @@ resource "aws_rds_cluster" "postgresql" {
   apply_immediately   = var.apply_immediately
   skip_final_snapshot = var.skip_final_snapshot
 
-  serverlessv2_scaling_configuration = {
+ scaling_configuration = {
     allocated_storage = var.allocated_storage
     max_allocated_storage = var.max_allocated_storage
   }
