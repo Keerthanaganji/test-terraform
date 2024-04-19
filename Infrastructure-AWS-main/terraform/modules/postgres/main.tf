@@ -14,7 +14,6 @@ resource "aws_rds_cluster" "postgresql" {
     }
   }
 
-  monitoring_interval = var.monitoring_interval
 
   apply_immediately   = var.apply_immediately
   skip_final_snapshot = var.skip_final_snapshot
@@ -30,3 +29,5 @@ resource "aws_rds_cluster_instance" "aurora_instance"{
   cluster_identifier = "aurora_cluster"
   instance_class = "db.r6g.large"
   identifier   = "aurora_instance"
+  monitoring_interval = var.monitoring_interval
+}
