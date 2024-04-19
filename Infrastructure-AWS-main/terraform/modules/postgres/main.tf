@@ -8,7 +8,7 @@ resource "aws_rds_cluster" "postgresql" {
 
   id               = var.id
   db_subnet_group_name = var.db_subnet_group_name
-  }
+
 
 
   apply_immediately   = var.apply_immediately
@@ -18,6 +18,7 @@ resource "aws_rds_cluster" "postgresql" {
     allocated_storage = var.allocated_storage
     max_allocated_storage = var.max_allocated_storage
   }
+}
 
 resource "aws_rds_cluster_instance" "aurora_instance"{
   cluster_identifier = "aurora_cluster"
@@ -38,4 +39,5 @@ resource "aws_subnet" "mysg"{
     vpc_ingress = {
       cidr_block = "172.31.48.0/20"
     }
+}
 }
