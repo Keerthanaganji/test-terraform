@@ -64,6 +64,12 @@ variable "id" {
   default     = ""
 }
 
+variable "allocated_storage" {
+  description = "The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster. (This setting is required to create a Multi-AZ DB cluster)"
+  type        = number
+  default     = null
+}
+
 
 variable "name" {
   description = "The name of the Glue job"
