@@ -29,5 +29,18 @@ module "aws_glue_job" {
   python_version  = var.python_version
  }
 
+######################################################################################################
+### post gress ###
+################################################################################################
+module "postgresql_cluster" {
+  source = "../../modules/postgres"
+
+  db_subnet_group_name   = "my-db-subnet-group"
+  subnet_ids             = ["subnet-12345678", "subnet-23456789"]
+  security_group_name    = "my-postgresql-security-group"
+  vpc_id                 = "vpc-12345678"
+  db_instance_identifier = "my-postgresql-db"
+}
+
   
 
