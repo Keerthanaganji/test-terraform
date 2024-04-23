@@ -1,37 +1,77 @@
-resource "aws_rds_cluster" "postgresql" {
-  cluster_identifier  = "aurora-cluster"
-  database_name           = var.database_name
-  engine            = var.engine
-  engine_mode       = var.engine_mode
-  engine_version    = var.engine_version
-  master_username   = var.master_username
+################################################################################
+# RDS Aurora Module
+################################################################################
 
-  db_subnet_group_name = var.db_subnet_group_name
+module "aurora" {
+  source = "../../"
 
+  name            = local.name
+  engine          = "aurora-postgresql"
+  engine_version  = "14.7"
+  master_username = "root"
+  storage_type    = "aurora-iopt1"
+  instances = {
+    1 = {
+      instance_class          = "db.r5.2xlarge"
+      publicly_accessible     = true
+      db_parameter_group_name = "default.aurora-postgresql14"
+    }
+    2 = {
+      identifier     = "static-member-1"
+      instance_class = "db.r5.2xlarge"
+    }   
+  }  
 
-
-  apply_immediately   = var.apply_immediately
-  skip_final_snapshot = var.skip_final_snapshot
-
- scaling_configuration {
-    min_capacity = "1"
-    max_capacity = "8"
+  vpc_id               = module.vpc.vpc_id
+  db_subnet_group_name = module.vpc.database_subnet_group_name
+  security_group_rules = {
+    vpc_ingress = {
+      cidr_blocks = module.vpc.private_subnets_cidr_blocks
+    }
+    egress_example = {
+      cidr_blocks = ["10.33.0.0/28"]
+      description = "Egress to corporate printer closet"
+    }
   }
+
+  apply_immediately   = true
+  skip_final_snapshot = true
+
+  create_db_cluster_parameter_group      = true
+  db_cluster_parameter_group_name        = local.name
+  db_cluster_parameter_group_family      = "aurora-postgresql14"
+  db_cluster_parameter_group_description = "${local.name} example cluster parameter group"
+  db_cluster_parameter_group_parameters = [
+    {
+      name         = "log_min_duration_statement"
+      value        = 4000
+      apply_method = "immediate"
+      }, {
+      name         = "rds.force_ssl"
+      value        = 1
+      apply_method = "immediate"
+    }
+  ]
+
+  create_db_parameter_group      = true
+  db_parameter_group_name        = local.name
+  db_parameter_group_family      = "aurora-postgresql14"
+  db_parameter_group_description = "${local.name} example DB parameter group"
+  db_parameter_group_parameters = [
+    {
+      name         = "log_min_duration_statement"
+      value        = 4000
+      apply_method = "immediate"
+    }
+  ]
+
+  enabled_cloudwatch_logs_exports = ["postgresql"]
+  create_cloudwatch_log_group     = true
+
+  create_db_cluster_activity_stream     = true
+  db_cluster_activity_stream_kms_key_id = module.kms.key_id
+  db_cluster_activity_stream_mode       = "async"
+
+  tags = local.tags
 }
 
-resource "aws_rds_cluster_instance" "aurora_instance"{
-  cluster_identifier = "aurora-cluster"
-  instance_class = "db.r6g.large"
-  identifier   = "aurora-instance"
-  monitoring_interval = var.monitoring_interval
-  engine            = var.engine
-}
-
-resource "aws_vpc" "sggroup"{
-  cidr_block = "172.31.0.0/16"
-}
-
-resource "aws_subnet" "mysg"{
-  vpc_id = "vpc-0c62dcc69ca138dc0"
-  cidr_block = "172.31.48.0/20"
-}
