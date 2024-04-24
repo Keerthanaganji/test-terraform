@@ -3,11 +3,11 @@ resource "aws_db_subnet_group" "example" {
   subnet_ids  = ["subnet-03a665b3db2978814","subnet-0731f902c06ec204c"]
 }
 
-resource "aws_security_group" "example" {
-  name        = "testvpckey"
-  description = "Security group for PostgreSQL"
-  vpc_id      = "vpc-07832f2f1eb8d75eb"
-}
+#resource "aws_security_group" "example" {
+#  name        = "testvpckey"
+#  description = "Security group for PostgreSQL"
+#  vpc_id      = "vpc-07832f2f1eb8d75eb"
+#}
 
 resource "aws_db_instance" "example" {
   identifier           = "static-member-1"
