@@ -54,7 +54,7 @@ resource "aws_security_group" "clustervpc" {
 }
 
 resource "aws_db_subnet_group" "clustersubnet" {
-  name       = "clustergroup"
+  group_name       = "clustergroup"
   subnet_ids = ["subnet-03a665b3db2978814","subnet-0731f902c06ec204c"]
 
   tags = {
