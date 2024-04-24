@@ -3,7 +3,8 @@ provider "aws" {
 } 
 
 resource "aws_db_subnet_group" "example" { 
-  name = "example" subnet_ids = ["subnet-03a665b3db2978814","subnet-0731f902c06ec204c"] # Replace with your existing subnet IDs 
+  name = "example" 
+  subnet_ids = ["subnet-03a665b3db2978814","subnet-0731f902c06ec204c"] # Replace with your existing subnet IDs 
 } 
 
 resource "aws_rds_cluster" "example" { 
