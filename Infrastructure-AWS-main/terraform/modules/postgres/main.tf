@@ -1,5 +1,5 @@
 provider "aws" { 
-  region = "your_aws_region" 
+  region = "eu-west-1" 
 } 
 
 resource "aws_db_subnet_group" "example" { 
@@ -29,4 +29,5 @@ resource "aws_rds_cluster" "example" {
 resource "aws_rds_cluster_instance" "example" { 
   cluster_identifier = aws_rds_cluster.example.id 
   instance_class = "db.r5.large" 
-  engine = "aurora" }
+  engine = "aurora" 
+}
