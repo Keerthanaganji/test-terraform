@@ -47,9 +47,7 @@ module "postgresql_cluster" {
   db_subnet_group_name    = "my-db-subnet-group"
   count                   = 2
   identifier              = "demo-cluster-member-instance-${count.index + 1}"
-  cluster_identifier      = aws_rds_cluster.democluster.id
   instance_class          = "db.r5.large"
-  engine                  = "aurora-postgresql"
   publicly_accessible     = false
   apply_immediately       = true
   name                    = "clustervpc"
