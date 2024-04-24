@@ -14,7 +14,6 @@ resource "aws_db_instance" "example" {
   engine               = "aurora-postgresql"
   engine_version       = 15.4
   instance_class       = "db.r5.large"
-  db_subnet_group_name = aws_db_subnet_group.example.name
   vpc_id               = "vpc-07832f2f1eb8d75eb"
   db_subnet_group_name = "my-db-subnet-group"
 }
