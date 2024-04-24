@@ -45,6 +45,17 @@ module "postgresql_cluster" {
   #preferred_backup_window = "07:00-09:00"
   vpc_security_group_ids  = "vpc-07832f2f1eb8d75eb"
   db_subnet_group_name    = "my-db-subnet-group"
+  count                   = 2
+  identifier              = "demo-cluster-member-instance-${count.index + 1}"
+  cluster_identifier      = aws_rds_cluster.democluster.id
+  instance_class          = "db.r5.large"
+  engine                  = "aurora-postgresql"
+  publicly_accessible     = false
+  apply_immediately       = true
+  name                    = "clustervpc"
+  vpc_id           = "vpc-07832f2f1eb8d75eb"
+  group_name       = "clustergroup"
+  subnet_ids = ["subnet-03a665b3db2978814","subnet-0731f902c06ec204c"]
   
 }
 
