@@ -1,6 +1,6 @@
 resource "aws_db_subnet_group" "example" {
   name        = "test"
-  subnet_ids  = ["subnet-0dbcd3afefc29f0f5" , "subnet-09ad768b4a3d24896"]
+  subnet_ids  = ["subnet-0a4ba4c731ca304e4"]
 }
 
 resource "aws_security_group" "example" {
