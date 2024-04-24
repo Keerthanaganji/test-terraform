@@ -36,9 +36,9 @@ module "postgresql_cluster" {
   source = "../../modules/postgres"
 
   db_subnet_group_name   = "my-db-subnet-group"
-#  subnet_ids             = ["subnet-03a665b3db2978814","subnet-0731f902c06ec204c"]
-#  security_group_name    = "testvpckey"
-#  vpc_id                 = "vpc-07832f2f1eb8d75eb"
+  subnet_ids             = ["subnet-03a665b3db2978814","subnet-0731f902c06ec204c"]
+  security_group_name    = "testvpckey"
+  vpc_id                 = "vpc-07832f2f1eb8d75eb"
   db_instance_identifier = "my-postgresql-db"
 }
 
