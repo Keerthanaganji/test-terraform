@@ -6,13 +6,13 @@ resource "aws_db_subnet_group" "example" {
 resource "aws_security_group" "example" {
   name        = "testvpckey"
   description = "Security group for PostgreSQL"
-  vpc_id      = "vpc-0c62dcc69ca138dc0"
+  vpc_id      = "vpc-0995668dd73017681"
 }
 
 resource "aws_db_instance" "example" {
   identifier           = "static-member-1"
   engine               = "aurora-postgresql"
   engine_version       = 15.4
-  instance_class       = "db.r5.2xlarge"
+  instance_class       = "db.r5.large"
   db_subnet_group_name = aws_db_subnet_group.example.name
 }
