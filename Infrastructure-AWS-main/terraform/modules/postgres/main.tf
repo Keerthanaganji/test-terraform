@@ -16,5 +16,5 @@ resource "aws_db_instance" "example" {
   instance_class       = "db.r5.large"
   db_subnet_group_name = aws_db_subnet_group.example.name
   vpc_id               = "vpc-07832f2f1eb8d75eb"
-  db_subnet_group_name = 
+  db_subnet_group_name = "my-db-subnet-group"
 }
