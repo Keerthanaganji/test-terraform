@@ -35,11 +35,17 @@ provider "aws" {
 module "postgresql_cluster" {
   source = "../../modules/postgres"
 
-  db_subnet_group_name   = "my-db-subnet-group"
-  subnet_ids             = ["subnet-03a665b3db2978814","subnet-0731f902c06ec204c"]
-  security_group_name    = "testvpckey"
-  vpc_id                 = "vpc-07832f2f1eb8d75eb"
-  db_instance_identifier = "my-postgresql-db"
+  cluster_identifier      = "demo-cluster-member-1"
+  engine                  = "aurora-postgresql"
+  engine_version          = "15.4"
+  database_name           = "mydb"
+  master_username         = "user"
+  master_password         = "admin@123"
+  #backup_retention_period = 5
+  #preferred_backup_window = "07:00-09:00"
+  vpc_security_group_ids  = "vpc-07832f2f1eb8d75eb"
+  db_subnet_group_name    = "my-db-subnet-group"
+  
 }
 
 
