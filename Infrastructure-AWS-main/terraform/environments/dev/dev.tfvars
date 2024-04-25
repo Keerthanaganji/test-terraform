@@ -1,6 +1,5 @@
 bucket_name_first = "artifact-bucket-infratest"
 bucket_name_log = "log-bucket-infratest"
-bucket_name_raw = "raw-bucket-infratest"
 region = "eu-west-1"
 
 name              = "glue-job"
