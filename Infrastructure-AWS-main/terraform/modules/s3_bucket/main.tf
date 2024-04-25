@@ -12,7 +12,7 @@ resource "aws_s3_bucket_versioning" "versioning_sample" {
   }
 }
 
-resource "aws_s3_bucket_archive" "archieve_bucket" {
+resource "aws_s3_bucket" "archieve_bucket" {
   bucket = var.bucket_name_archieve
   acl    = "private"
 
