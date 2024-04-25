@@ -26,8 +26,8 @@ resource "aws_db_subnet_group" "example_subnet_group" {
 
 resource "aws_rds_cluster_instance" "example_instance" {
   cluster_identifier        = "example-cluster"
-  identifier       = instance-example
-  instance_class            = 
+  identifier       = "instance-example"
+  instance_class            = "db.t2.medium"
   engine                    = "aurora"
   engine_version            = "5.6.10a"
 
