@@ -35,7 +35,7 @@ module "postgresql_rds_cluster" {
 
   db_cluster_identifier  = "example-cluster"
   db_instance_identifier = "instance-example"
-  db_engine              = "aurora-postgressql"
+  db_engine              = "aurora-postgresql"
   db_engine_version      = "5.6.10a"
   db_instance_class      = "db.t2.medium"
   db_master_username     = "admin"
