@@ -33,13 +33,13 @@
 module "postgresql_rds_cluster" {
   source  = "../../modules/postgres"
 
-  db_cluster_identifier  = "example-cluster"
-  db_instance_identifier = "instance-example"
-  db_engine              = "aurora-postgresql"
-  db_engine_version      = "5.6.10a"
-  db_instance_class      = "db.t2.medium"
-  db_master_username     = "admin"
-  db_master_password     = "password"
+  cluster_identifier  = "example-cluster"
+  instance_identifier = "instance-example"
+  engine              = "aurora-postgresql"
+  engine_version      = "5.6.10a"
+  instance_class      = "db.t2.medium"
+  master_username     = "admin"
+  master_password     = "password"
   vpc_security_group_ids = ["sg-030c0f8e77df31572",]
   subnet_ids             = ["subnet-03a665b3db2978814", "subnet-0731f902c06ec204c"]
 }
