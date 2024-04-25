@@ -1,7 +1,7 @@
 resource "aws_s3_bucket" "bucket" {
  
-  bucket = var.bucket_name_first
-  bucket = var.bucket_name_archieve
+  bucket_name_first = var.bucket_name_first
+  bucket_name_archieve = var.bucket_name_archieve
 }
  
 resource "aws_s3_bucket_versioning" "versioning_sample" {
