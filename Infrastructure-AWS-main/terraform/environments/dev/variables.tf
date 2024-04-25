@@ -11,15 +11,42 @@ variable "bucket_name_first" {
   description = "Name of the second s3 Bucketb"
 }
 
-variable "database_name" {
-  description = "The name of the database to create within the PostgreSQL instance"
-  default     = "exampledb"
-  type = string
+variable "db_cluster_identifier" {
+  description = "The identifier for the RDS cluster"
 }
-variable "engine" {
-  description = "The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`"
-  type        = string
-  default     = null
+
+variable "db_instance_identifier" {
+  description = "The identifier for the RDS instance"
+}
+
+variable "db_engine" {
+  description = "The database engine to use (e.g., aurora, mysql)"
+}
+
+variable "db_engine_version" {
+  description = "The version of the database engine"
+}
+
+variable "db_instance_class" {
+  description = "The instance class for the RDS instance"
+}
+
+variable "db_master_username" {
+  description = "The master username for the RDS cluster"
+}
+
+variable "db_master_password" {
+  description = "The master password for the RDS cluster"
+}
+
+variable "vpc_security_group_ids" {
+  description = "List of security group IDs for the RDS cluster"
+  type        = list(string)
+}
+
+variable "subnet_ids" {
+  description = "List of subnet IDs for the RDS cluster"
+  type        = list(string)
 }
 
 variable "engine_mode" {
