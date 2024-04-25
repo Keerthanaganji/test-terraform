@@ -7,7 +7,7 @@ module "s3_bucket" {
  
   bucket_name_first = var.bucket_name_first
   bucket_name_log = var.bucket_name_log
-  bucket_name_raw = var.bucket_name_raw
+  #bucket_name_raw = var.bucket_name_raw
 }
 
 ######################################################################################################
