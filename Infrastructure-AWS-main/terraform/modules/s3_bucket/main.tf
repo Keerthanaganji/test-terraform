@@ -3,7 +3,7 @@ resource "aws_s3_bucket" "bucket" {
   acl    = "private"
 }
  
-resource "aws_s3_bucket_versioning" "versioning_sample" {
+resource "aws_s3_bucket_versioning" "artifact_bucket" {
  
  bucket = aws_s3_bucket.bucket.id
   versioning_configuration {
@@ -11,22 +11,33 @@ resource "aws_s3_bucket_versioning" "versioning_sample" {
   }
 }
 
-resource "aws_s3_bucket" "archieve_bucket" {
-  bucket = var.bucket_name_archieve
+resource "aws_s3_bucket" "log_bucket" {
+  bucket = var.bucket_name_log
   acl    = "private"
 
-  lifecycle_rule {
-    enabled = true
 
-    transition {
-      days          = var.lifecycle_transition_days_glacier
-      storage_class = "GLACIER"
-    }
-
-    transition {
-      days          = var.lifecycle_transition_days_glacier+90
-      storage_class = "DEEP_ARCHIVE"
-    }
+  tiering {
+    access_tier = "ARCHIVE_ACCESS"
+    days        = 125
   }
+  tiering {
+    access_tier = "DEEP_ARCHIVE_ACCESS"
+    days        = 180
+  }
+
+ resource "aws_s3_bucket" "raw_bucket" {
+  bucket = var.bucket_name_raw
+  acl    = "private"
+
+
+  tiering {
+    access_tier = "ARCHIVE_ACCESS"
+    days        = 125
+  }
+  tiering {
+    access_tier = "DEEP_ARCHIVE_ACCESS"
+    days        = 180
+  }
+
 }
 
