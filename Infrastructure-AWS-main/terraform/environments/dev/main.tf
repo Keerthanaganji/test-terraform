@@ -34,9 +34,9 @@ module "postgresql_rds_cluster" {
   source  = "../../modules/postgres"
 
   db_cluster_identifier  = "example-cluster"
-  db_instance_identifier = "example-instance"
+  db_instance_identifier = "instance-example"
   db_engine              = "aurora"
-  db_engine_version      = "15.4"
+  db_engine_version      = "5.6.10a"
   db_instance_class      = "db.t2.medium"
   db_master_username     = "admin"
   db_master_password     = "password"
