@@ -5,7 +5,7 @@ resource "aws_rds_cluster" "example_cluster" {
   engine              = "aurora-postgresql"
   engine_version      = "5.6.10a"
   instance_class      = "db.t2.medium"
-  master_username     = "admin"
+  db_master_username     = "admin"
   master_password     = "password"
   skip_final_snapshot       = true
 
