@@ -30,10 +30,21 @@ module "s3_bucket" {
 # }
 ##########################################################################################################
 
-#module "postgresql" {
-#  source  = "../../modules/postgres"
+module "postgresql_rds_cluster" {
+  source  = "../../modules/postgres"
 
-#}
+  db_cluster_identifier  = "example-cluster"
+  db_instance_identifier = "example-instance"
+  db_engine              = "aurora"
+  db_engine_version      = "15.4"
+  db_instance_class      = "db.t2.medium"
+  db_master_username     = "admin"
+  db_master_password     = "password"
+  vpc_security_group_ids = ["sg-030c0f8e77df31572",]
+  subnet_ids             = ["subnet-03a665b3db2978814", "subnet-0731f902c06ec204c"]
+}
+
+}
 
 
 
