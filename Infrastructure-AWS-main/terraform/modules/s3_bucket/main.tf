@@ -1,6 +1,7 @@
 resource "aws_s3_bucket" "bucket" {
  
   bucket = var.bucket_name_first
+  bucket = var.bucket_name_archieve
 }
  
 resource "aws_s3_bucket_versioning" "versioning_sample" {
@@ -9,6 +10,7 @@ resource "aws_s3_bucket_versioning" "versioning_sample" {
   versioning_configuration {
     status = "Enabled"
   }
+}
 
 resource "aws_s3_bucket_archive" "archieve_bucket" {
   bucket = var.bucket_name_archieve
