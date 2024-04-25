@@ -1,5 +1,5 @@
 bucket_name_first = "mysamplebucketkeerthana"
-bucket_name_second = "testarchivebucket"
+bucket_name_archieve = "testarchivebucket"
 region = "eu-west-1"
 
 name              = "glue-job"
