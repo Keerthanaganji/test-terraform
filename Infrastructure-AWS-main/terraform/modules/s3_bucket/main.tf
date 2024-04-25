@@ -13,7 +13,7 @@ resource "aws_s3_bucket_versioning" "versioning_sample" {
 }
 
 resource "aws_s3_bucket_archive" "archieve_bucket" {
-  bucket = var.bucket_name_archieve
+  bucket = aws_s3_bucket.bucket.id
   acl    = "private"
 
   lifecycle_rule {
