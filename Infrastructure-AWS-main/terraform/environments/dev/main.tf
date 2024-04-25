@@ -30,10 +30,10 @@ provider "aws" {
 # }
 ##########################################################################################################
 
-module "postgresql" {
-  source  = "../../modules/postgres"
+#module "postgresql" {
+#  source  = "../../modules/postgres"
 
-}
+#}
 
 
 
