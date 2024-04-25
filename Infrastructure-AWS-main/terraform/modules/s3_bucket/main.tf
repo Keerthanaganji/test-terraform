@@ -24,7 +24,7 @@ resource "aws_s3_bucket" "archieve_bucket" {
     }
 
     transition {
-      days          = var.lifecycle_transition_days_deep_archive
+      days          = var.lifecycle_transition_days_glacier+90
       storage_class = "DEEP_ARCHIVE"
     }
   }
