@@ -1,13 +1,14 @@
-#provider "aws" {
-#  region = var.region
-#}
+provider "aws" {
+  region = var.region
+}
 
-#module "s3_bucket" {
-#  source = "../../modules/s3_bucket"
+module "s3_bucket" {
+  source = "../../modules/s3_bucket"
  
-#  bucket_name_first = var.bucket_name_first
-#  bucket_name_archieve = var.bucket_name_archieve
-#}
+  bucket_name_first = var.bucket_name_first
+  bucket_name_log = var.bucket_name_log
+  bucket_name_raw = var.bucket_name_raw
+}
 
 ######################################################################################################
 ### glue Job ###
