@@ -11,31 +11,31 @@ variable "bucket_name_first" {
   description = "Name of the second s3 Bucketb"
 }
 
-variable "db_cluster_identifier" {
+variable "cluster_identifier" {
   description = "The identifier for the RDS cluster"
 }
 
-variable "db_instance_identifier" {
+variable "instance_identifier" {
   description = "The identifier for the RDS instance"
 }
 
-variable "db_engine" {
+variable "engine" {
   description = "The database engine to use (e.g., aurora, mysql)"
 }
 
-variable "db_engine_version" {
+variable "engine_version" {
   description = "The version of the database engine"
 }
 
-variable "db_instance_class" {
+variable "instance_class" {
   description = "The instance class for the RDS instance"
 }
 
-variable "db_master_username" {
+variable "master_username" {
   description = "The master username for the RDS cluster"
 }
 
-variable "db_master_password" {
+variable "master_password" {
   description = "The master password for the RDS cluster"
 }
 
