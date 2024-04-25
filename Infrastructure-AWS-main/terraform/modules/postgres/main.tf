@@ -26,8 +26,10 @@ resource "aws_db_subnet_group" "example_subnet_group" {
 
 resource "aws_rds_cluster_instance" "example_instance" {
   cluster_identifier        = aws_rds_cluster.example_cluster.id
-  instance_identifier       = var.db_instance_identifier
+  identifier       = var.db_instance_identifier
   instance_class            = var.db_instance_class
+  engine                    = var.db_engine
+  engine_version            = var.db_engine_version
 
   tags = {
     Name = "Example RDS Instance"
