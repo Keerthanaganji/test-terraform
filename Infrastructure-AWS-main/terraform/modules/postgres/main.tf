@@ -1,14 +1,35 @@
-resource "aws_rds_cluster" "postgres" { 
-  db_subnet_group_name           = "my-db-subnet-group"
-  vpc_id                         = "vpc-07832f2f1eb8d75eb"
-  db_subnet_group_subnet_ids     = ["subnet-03a665b3db2978814","subnet-0731f902c06ec204c"]
-  allocated_storage              = 20
-  engine                         = "postgres"
-  engine_version                 = "12.4"
-  instance_class                 = "db.t3.medium"
-  name                           = "my-postgresql"
-  username                       = "postgres"
-  password                       = "your_password"
-  publicly_accessible            = false
-  skip_final_snapshot            = true
+resource "aws_rds_cluster" "example_cluster" {
+  cluster_identifier        = var.db_cluster_identifier
+  database_name             = "example_db"
+  engine                    = var.db_engine
+  engine_version            = var.db_engine_version
+  master_username           = var.db_master_username
+  master_password           = var.db_master_password
+  skip_final_snapshot       = true
+
+  vpc_security_group_ids    = var.vpc_security_group_ids
+  db_subnet_group_name      = aws_db_subnet_group.example_subnet_group.name
+
+  tags = {
+    Name = "Example RDS Cluster"
+  }
+}
+
+resource "aws_db_subnet_group" "example_subnet_group" {
+  name       = "example-subnet-group"
+  subnet_ids = var.subnet_ids
+
+  tags = {
+    Name = "Example Subnet Group"
+  }
+}
+
+resource "aws_rds_cluster_instance" "example_instance" {
+  cluster_identifier        = aws_rds_cluster.example_cluster.id
+  instance_identifier       = var.db_instance_identifier
+  instance_class            = var.db_instance_class
+
+  tags = {
+    Name = "Example RDS Instance"
+  }
 }
