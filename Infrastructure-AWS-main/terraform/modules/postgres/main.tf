@@ -1,13 +1,13 @@
 resource "aws_rds_cluster" "example_cluster" {
   cluster_identifier        =  "example-cluster"
   database_name             = "example_db"
-  engine                    = "aurora"
+  engine                    = "aurora-postgresql"
   engine_version            = "5.6.10a" 
   master_username           = "rrot"
   master_password           = "admin"
   skip_final_snapshot       = true
 
-  vpc_security_group_ids    = "vpc-07832f2f1eb8d75eb"
+  vpc_security_group_ids    = ["sg-030c0f8e77df31572"]
   db_subnet_group_name      = "demosubnet2"
 
   tags = {
@@ -28,7 +28,7 @@ resource "aws_rds_cluster_instance" "example_instance" {
   cluster_identifier        = "example-cluster"
   identifier       = "instance-example"
   instance_class            = "db.t2.medium"
-  engine                    = "aurora"
+  engine                    = "aurora-postgresql"
   engine_version            = "5.6.10a"
 
   tags = {
