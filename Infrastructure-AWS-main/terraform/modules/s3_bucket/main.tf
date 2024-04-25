@@ -24,6 +24,7 @@ resource "aws_s3_bucket" "log_bucket" {
     access_tier = "DEEP_ARCHIVE_ACCESS"
     days        = 180
   }
+}
 
  resource "aws_s3_bucket" "raw_bucket" {
   bucket = var.bucket_name_raw
