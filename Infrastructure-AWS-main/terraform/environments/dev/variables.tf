@@ -11,11 +11,6 @@ variable "bucket_name_first" {
   description = "Name of the second s3 Bucketb"
 }
 
-variable "bucket_name_raw" {
-  type = string
-  description = "Name of the second s3 Bucketb"
-}
-
 variable "database_name" {
   description = "The name of the database to create within the PostgreSQL instance"
   default     = "exampledb"
