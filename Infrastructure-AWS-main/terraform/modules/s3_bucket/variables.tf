@@ -8,9 +8,6 @@ variable "bucket_name_log" {
   description = "Name of the second s3 Bucketb"
 }
 
-variable "bucket_name_raw" {
-  type = string
-  description = "Name of the second s3 Bucketb"
-}
+
 
 
