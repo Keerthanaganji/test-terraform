@@ -34,7 +34,7 @@ resource "aws_glue_job" "job" {
   execution_property {
     max_concurrent_runs = 5 # Limit to one concurrent run
   }
-  vpc_config {
+  connections {
       subnet_ids         = var.subnet_ids
       security_group_ids = var.security_group_ids
     }
