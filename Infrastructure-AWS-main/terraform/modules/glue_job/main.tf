@@ -1,5 +1,5 @@
 resource "aws_glue_security_configuration" "example_security_configuration" {
-  name                 = "example-glue-security-configuration"
+  name                 = "example_glue_security_configuration"
   encryption_configuration {
     cloudwatch_encryption {
       cloudwatch_encryption_mode = "DISABLED"
@@ -10,6 +10,11 @@ resource "aws_glue_security_configuration" "example_security_configuration" {
     s3_encryption {
       s3_encryption_mode = "DISABLED"
     }
+}
+
+    job_bookmarks_encryption_mode = "DISABLED"
+    cloudwatch_encryption_mode    = "DISABLED"
+    s3_encryption_mode            = "DISABLED"
     connection_to_resources {
       subnet_ids         = ["subnet-03a665b3db2978814", "subnet-0731f902c06ec204c"] # Specify your subnet IDs
       security_group_ids = ["sg-030c0f8e77df31572", "sg-028f561ebcf411e7a"]  # Specify your security group IDs
