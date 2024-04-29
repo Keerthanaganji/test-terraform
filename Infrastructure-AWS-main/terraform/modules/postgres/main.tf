@@ -8,8 +8,27 @@ resource "aws_vpc" "main"{
 }
 resource "aws_db_subnet_group" "demosubnet" {
   name       = "demosubnet"
-  subnet_ids = module.vpc.public_subnets
+  subnet_ids = module.postgres.public_subnets
 
+}
+resource "aws_security_group" "rds" {
+  name        = "demotest_rds"
+  vpc_id      = module.postgres.vpc_id
+
+  ingress {
+    from_port   = 5432
+    to_port     = 5432
+    protocol    = "tcp"
+    cidr_blocks = [0.0.0.0/0"]
+  }
+
+  // Define egress rules
+  egress {
+    from_port   = 5432
+    to_port     = 5432
+    protocol    = "tcp"
+    cidr_blocks = [0.0.0.0/0"]
+  }
 }
 resource "aws_db_instance" "demotest" {
   identifier             = "demotest"
