@@ -12,7 +12,7 @@ security_configuration = true
 worker_type            = "G.1X"
 number_of_workers      = 5
 python_version         = 3
-script_location        = "s3://mysamplebuckettest1119/provider_aws.txt"
+script_location        = "s3://mysamplebuckettest1119/provider_aws.py"
 
 ################################################################################
 # PostgreSQL Serverless v2
