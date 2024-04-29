@@ -19,7 +19,6 @@ module "aws_glue_job" {
   name              = var.name
   connections            = var.connections
   description            = var.description
-  glue_version           = var.glue_version
   max_retries            = var.max_retries
   timeout                = var.timeout
   security_configuration = var.security_configuration
