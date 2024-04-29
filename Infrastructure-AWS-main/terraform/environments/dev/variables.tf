@@ -100,7 +100,7 @@ variable "security_group_ids" {
   description = "A list of existing security group IDs for the RDS PostgreSQL cluster"
   type        = list(string)
 }
-variable "db_subnet_group_name" {
+variable "subnet_group_name" {
   description = "The name of the DB subnet group"
   type        = string
 }
