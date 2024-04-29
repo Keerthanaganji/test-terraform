@@ -26,6 +26,8 @@ module "aws_glue_job" {
   script_location = var.script_location 
   security_configuration = "example_security_configuration"  # Assuming you have a security configuration created
   python_version  = var.python_version
+  subnet_ids               = ["subnet-03a665b3db2978814", "subnet-0731f902c06ec204c"]  # Provide your existing subnet IDs here
+  security_group_ids       = ["sg-030c0f8e77df31572", "sg-028f561ebcf411e7a"]
 }
 
 ################################################################################
