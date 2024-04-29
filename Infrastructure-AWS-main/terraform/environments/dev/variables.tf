@@ -11,22 +11,6 @@ variable "bucket_name_first" {
   description = "Name of the second s3 Bucketb"
 }
 
-variable "cluster_identifier" {
-  description = "The identifier for the RDS cluster"
-}
-
-variable "instance_identifier" {
-  description = "The identifier for the RDS instance"
-}
-
-variable "engine" {
-  description = "The database engine to use (e.g., aurora, mysql)"
-}
-
-variable "engine_version" {
-  description = "The version of the database engine"
-}
-
 variable "name" {
   description = "The name of the Glue job"
 }
