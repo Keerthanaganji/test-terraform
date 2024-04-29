@@ -33,20 +33,16 @@ provider "aws" {
 # RDS Aurora Module
 ################################################################################
 
-module "vpc" {
-  source  = "../../modules/postgres"
+module "postgres_cluster" {
+  source = "../../modules/postgres"
 
-  name                 = "demovpc"
-  cidr                 = "10.0.0.0/16"
-  public_subnets       = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
-  enable_dns_hostnames = true
-  enable_dns_support   = true
-}
-module "subnets" {
-  source             = "../../modules/postgres"
-  vpc_id             = aws_vpc.main.id
-  count              = 3
-  cidr_blocks        = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
-  availability_zones = ["us-west-1a", "us-west-1b", "us-west-1c"]
+  cluster_name             = "my-postgres-cluster"
+  allocated_storage        = 100
+  instance_class           = "db.t3.medium"
+  engine                   = "aurora-postgresql"
+  engine_version           = "10.14"
+  vpc_id                   = "vpc-07832f2f1eb8d75eb"   # Provide your existing VPC ID here
+  subnet_ids               = ["subnet-03a665b3db2978814", "subnet-0731f902c06ec204c"]  # Provide your existing subnet IDs here
+  security_group_ids       = ["sg-030c0f8e77df31572", "sg-028f561ebcf411e7a"]  # Provide your existing security group IDs here
 }
 
