@@ -1,39 +1,9 @@
-resource "aws_rds_cluster" "example_cluster" {
-  
-  cluster_identifier  = "example-cluster"
-  instance_identifier = "instance-example"
-  engine              = "aurora-postgresql"
-  engine_version      = "5.6.10a"
-  instance_class      = "db.t2.medium"
-  db_master_username     = "admin"
-  master_password     = "password"
-  skip_final_snapshot       = true
+resource "aws_vpc" "main"{
 
-  vpc_security_group_ids    = ["sg-030c0f8e77df31572"]
-  db_subnet_group_name      = "demosubnet2"
-
-  tags = {
-    Name = "Example RDS Cluster"
-  }
+  name                 = "demovpc"
+  cidr                 = "10.0.0.0/16"
+  public_subnets       = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
+  enable_dns_hostnames = true
+  enable_dns_support   = true
 }
 
-resource "aws_db_subnet_group" "example_subnet_group" {
-  name       = "demosubnet2"
-  subnet_ids = ["subnet-03a665b3db2978814","subnet-0731f902c06ec204c"]
-
-  tags = {
-    Name = "Example Subnet Group"
-  }
-}
-
-resource "aws_rds_cluster_instance" "example_instance" {
-  cluster_identifier        = "example-cluster"
-  instance_identifier       = "instance-example"
-  instance_class            = "db.t2.medium"
-  engine                    = "aurora-postgresql"
-  engine_version            = "5.6.10a"
-
-  tags = {
-    Name = "Example RDS Instance"
-  }
-}
