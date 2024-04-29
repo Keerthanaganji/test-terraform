@@ -17,6 +17,15 @@ variable "max_retries" {
 variable "timeout" {
   description = "The job timeout in minutes"
 }
+variable "subnet_ids" {
+  description = "A list of existing subnet IDs where the RDS PostgreSQL cluster will be deployed"
+  type        = list(string)
+}
+
+variable "security_group_ids" {
+  description = "A list of existing security group IDs for the RDS PostgreSQL cluster"
+  type        = list(string)
+}
 
 variable "security_configuration" {
   description = "The ID of an existing security configuration for the Glue job"
