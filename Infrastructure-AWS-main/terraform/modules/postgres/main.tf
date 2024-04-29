@@ -1,4 +1,4 @@
-resource "aws_vpc" "main"{
+resource "aws_vpc" "demovpc"{
 
   name                 = "demovpc"
   cidr                 = "10.0.0.0/16"
