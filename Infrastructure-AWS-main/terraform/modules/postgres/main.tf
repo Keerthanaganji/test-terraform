@@ -10,7 +10,7 @@ resource "aws_rds_cluster" "testcluster" {
   db_cluster_instance_class    = var.instance_class
 }
 
-resource "aws_db_subnet_group" "postgres_subnet_group" {
+resource "aws_db_subnet_group" "my_db_subnet_group" {
   name        = "my_db_subnet_group"
   description = "DB subnet group for PostgreSQL"
   subnet_ids  = ["subnet-03a665b3db2978814", "subnet-0731f902c06ec204c"]
