@@ -31,13 +31,17 @@
 ##########################################################################################################
 
 module "vpc" {
-  source  = "../../modules/postgres"
+  source = "../../modules/postgres"
 
-  name                 = "demovpc"
-  cidr                 = "10.0.0.0/16"
-  public_subnets       = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
-  enable_dns_hostnames = true
-  enable_dns_support   = true
+  cluster_identifier     = "example-cluster"
+  db_master_username     = "admin"
+  subnet_ids             = ["subnet-12345678", "subnet-23456789", "subnet-34567890"]
+  instance_class         = "db.t3.micro"
+  master_password        = "password"
+  vpc_security_group_ids = ["sg-12345678"]
+  instance_identifier    = "example-instance"
+  engine                 = "postgres"
+  engine_version         = "15.14"
 }
 
 
