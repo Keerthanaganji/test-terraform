@@ -1,19 +1,3 @@
-resource "aws_glue_security_configuration" "test_security_configuration1" {
-  name = "test_security_configuration1"
-
-  encryption_configuration {
-    cloudwatch_encryption {
-      cloudwatch_encryption_mode = "DISABLED"
-    }
-    job_bookmarks_encryption {
-      job_bookmarks_encryption_mode = "DISABLED"
-    }
-    s3_encryption {
-      s3_encryption_mode = "DISABLED"
-    }
-  }
-}
-
 resource "aws_glue_job" "job" {
   name                   = var.name
   role_arn               = "arn:aws:iam::992382526479:role/glue_etl_job"
@@ -22,7 +6,7 @@ resource "aws_glue_job" "job" {
   timeout                = var.timeout
   worker_type            = var.worker_type
   number_of_workers      = var.number_of_workers
-  security_configuration = aws_glue_security_configuration.test_security_configuration1.name
+  security_configuration = "test_security_configuration1"
 
 
   command {
