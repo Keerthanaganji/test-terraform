@@ -30,18 +30,16 @@
 # }
 ##########################################################################################################
 
-module "postgresql_rds_cluster" {
+module "vpc" {
   source  = "../../modules/postgres"
+  version = "2.77.0"
 
-  cluster_identifier  = "example-cluster"
-  instance_identifier = "instance-example"
-  engine              = "aurora-postgresql"
-  engine_version      = "5.6.10a"
-  instance_class      = "db.t2.medium"
-  db_master_username     = "admin"
-  master_password     = "password"
-  vpc_security_group_ids = ["sg-030c0f8e77df31572",]
-  subnet_ids             = ["subnet-03a665b3db2978814", "subnet-0731f902c06ec204c"]
+  name                 = "education"
+  cidr                 = "10.0.0.0/16"
+  azs                  = data.aws_availability_zones.available.names
+  public_subnets       = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
+  enable_dns_hostnames = true
+  enable_dns_support   = true
 }
 
 
