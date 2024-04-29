@@ -39,3 +39,10 @@ resource "aws_glue_job" "job" {
     security_group_ids = var.security_group_ids
   }
 }
+resource "aws_glue_connection" "example_connector" {
+  connection_type = "CUSTOM"
+
+  connection_properties = {
+    subnet_ids         = var.subnet_ids
+    security_group_ids = var.security_group_ids
+  }
