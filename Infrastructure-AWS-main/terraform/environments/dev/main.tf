@@ -24,7 +24,7 @@ module "aws_glue_job" {
   worker_type            = var.worker_type
   number_of_workers      = var.number_of_workers
   script_location = var.script_location 
-  security_configuration = "example_security_configuration"  # Assuming you have a security configuration created
+  security_configuration = "test_security_configuration1"  # Assuming you have a security configuration created
   python_version  = var.python_version
   vpc_id                   = "vpc-07832f2f1eb8d75eb"
   subnet_ids               = ["subnet-03a665b3db2978814", "subnet-0731f902c06ec204c"]  # Provide your existing subnet IDs here
