@@ -7,6 +7,5 @@ resource "aws_rds_cluster" "testcluster" {
 
   engine           = var.engine
   engine_version   = var.engine_version
-  db_cluster_identifier_prefix = var.cluster_name
   db_cluster_instance_class    = var.instance_class
 }
