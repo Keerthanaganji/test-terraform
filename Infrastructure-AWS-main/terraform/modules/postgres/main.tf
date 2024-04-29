@@ -6,11 +6,5 @@ resource "aws_rds_cluster" "testcluster" {
 
   engine           = var.engine
   engine_version   = var.engine_version
-
-  scaling_configuration {
-    min_capacity = 1
-    max_capacity = 2
-    auto_pause   = true
-  }
 }
 
