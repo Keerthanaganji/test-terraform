@@ -42,3 +42,11 @@ module "vpc" {
   enable_dns_hostnames = true
   enable_dns_support   = true
 }
+module "subnets" {
+  source             = "../../modules/postgres"
+  vpc_id             = aws_vpc.main.id
+  count              = 3
+  cidr_blocks        = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
+  availability_zones = ["us-west-1a", "us-west-1b", "us-west-1c"]
+}
+
