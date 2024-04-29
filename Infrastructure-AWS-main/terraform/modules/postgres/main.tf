@@ -8,7 +8,7 @@ resource "aws_vpc" "demovpc"{
 }
 resource "aws_db_subnet_group" "demosubnet" {
   name       = "demosubnet"
-  subnet_ids = module.postgres.public_subnets
+  subnet_ids = module.vpc.public_subnets
 
 }
 resource "aws_security_group" "rds" {
