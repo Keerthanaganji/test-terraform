@@ -28,10 +28,16 @@ resource "aws_glue_job" "job" {
   security_configuration = var.security_configuration
   worker_type            = var.worker_type
   number_of_workers      = var.number_of_workers
+  security_configuration = aws_glue_security_configuration.example_security_configuration.name
 
   command {
-    script_location = var.script_location 
+    name             = "pythonshell"
+    script_location = "s3://your-bucket-name/scripts/example_job_script.py" 
     python_version  = var.python_version
+  }
+
+   execution_property {
+    max_concurrent_runs = 5 # Limit to one concurrent run
   }
 
 }
