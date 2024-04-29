@@ -32,7 +32,6 @@
 
 module "vpc" {
   source  = "../../modules/postgres"
-  version = "2.77.0"
 
   name                 = "demovpc"
   cidr                 = "10.0.0.0/16"
