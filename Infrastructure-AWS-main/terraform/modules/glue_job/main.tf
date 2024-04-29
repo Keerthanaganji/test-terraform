@@ -11,8 +11,8 @@ resource "aws_glue_security_configuration" "example_security_configuration" {
       s3_encryption_mode = "DISABLED"
     }
     connection_to_resources {
-      subnet_ids         = ["subnet-123456789", "subnet-987654321"]  # Specify your subnet IDs
-      security_group_ids = ["sg-0123456789abcdef0"]  # Specify your security group IDs
+      subnet_ids         = ["subnet-03a665b3db2978814", "subnet-0731f902c06ec204c"] # Specify your subnet IDs
+      security_group_ids = "sg-030c0f8e77df31572", "sg-028f561ebcf411e7a"]  # Specify your security group IDs
     }
   }
 }
