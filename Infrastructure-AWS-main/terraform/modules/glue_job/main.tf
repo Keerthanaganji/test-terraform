@@ -12,11 +12,6 @@ resource "aws_glue_security_configuration" "example_security_configuration" {
       s3_encryption_mode = "DISABLED"
     }
   }
-  connections {
-    subnet_ids         = var.subnet_ids
-    security_group_ids = var.security_group_ids
-  }
-    
 }
 
 resource "aws_glue_job" "job" {
@@ -38,5 +33,9 @@ resource "aws_glue_job" "job" {
 
   execution_property {
     max_concurrent_runs = 5 # Limit to one concurrent run
+  }
+  vpc_config {
+    subnet_ids         = var.subnet_ids
+    security_group_ids = var.security_group_ids
   }
 }
