@@ -38,12 +38,12 @@ module "postgres_cluster" {
 
   cluster_name             = "my-postgres-cluster"
   allocated_storage        = 100
-  instance_class           = "db.t3.medium"
+  instance_class           = "db.r5.large"
   engine                   = "aurora-postgresql"
   engine_version           = "15.4"
   vpc_id                   = "vpc-07832f2f1eb8d75eb"   # Provide your existing VPC ID here
   subnet_ids               = ["subnet-03a665b3db2978814", "subnet-0731f902c06ec204c"]  # Provide your existing subnet IDs here
   security_group_ids       = ["sg-030c0f8e77df31572", "sg-028f561ebcf411e7a"]  # Provide your existing security group IDs here
-  subnet_group_name  = "my_db_subnet_group"
+  subnet_group_name  = "my_db_subnet_group_22"
 }
 
