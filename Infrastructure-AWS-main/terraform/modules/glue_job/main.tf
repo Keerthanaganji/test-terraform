@@ -15,7 +15,6 @@ resource "aws_glue_security_configuration" "example_security_configuration" {
       security_group_ids = "sg-030c0f8e77df31572", "sg-028f561ebcf411e7a"]  # Specify your security group IDs
     }
   }
-}
 
 resource "aws_glue_job" "job" {
   name                   = var.name
