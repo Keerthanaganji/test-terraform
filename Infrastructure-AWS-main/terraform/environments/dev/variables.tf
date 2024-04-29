@@ -31,6 +31,10 @@ variable "glue_version" {
 variable "timeout" {
   description = "The job timeout in minutes"
 }
+variable "max_retries" {
+  type        = number
+  description = "The maximum number of retries for the Glue job"
+}
 
 variable "security_configuration" {
   description = "The ID of an existing security configuration for the Glue job"
