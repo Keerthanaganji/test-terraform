@@ -22,10 +22,8 @@ resource "aws_glue_job" "job" {
   role_arn               = "arn:aws:iam::992382526479:role/glue_etl_job"
   connections            = var.connections
   description            = var.description
-  glue_version           = var.glue_version
   max_retries            = var.max_retries
   timeout                = var.timeout
-  security_configuration = var.security_configuration
   worker_type            = var.worker_type
   number_of_workers      = var.number_of_workers
   security_configuration = aws_glue_security_configuration.example_security_configuration.name
