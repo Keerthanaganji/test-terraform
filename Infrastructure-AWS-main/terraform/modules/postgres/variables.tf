@@ -1,37 +1,37 @@
-variable "cluster_identifier" {
-  description = "The identifier for the RDS cluster"
+variable "cluster_name" {
+  description = "The name of the RDS PostgreSQL cluster"
 }
 
-variable "instance_identifier" {
-  description = "The identifier for the RDS instance"
-}
-
-variable "engine" {
-  description = "The database engine to use (e.g., aurora, mysql)"
-}
-
-variable "engine_version" {
-  description = "The version of the database engine"
+variable "allocated_storage" {
+  description = "The amount of storage (in GB) to be initially allocated for the database"
+  default     = 100
 }
 
 variable "instance_class" {
-  description = "The instance class for the RDS instance"
+  description = "The instance type to use for the RDS PostgreSQL cluster"
+  default     = "db.t3.medium"
 }
 
-variable "db_master_username" {
-  description = "The master username for the RDS cluster"
+variable "engine" {
+  description = "The database engine to use for the RDS PostgreSQL cluster"
+  default     = "aurora-postgresql"
 }
 
-variable "master_password" {
-  description = "The master password for the RDS cluster"
+variable "engine_version" {
+  description = "The version of the database engine to use for the RDS PostgreSQL cluster"
+  default     = "10.14"
 }
 
-variable "vpc_security_group_ids" {
-  description = "List of security group IDs for the RDS cluster"
-  type        = list(string)
+variable "vpc_id" {
+  description = "The ID of the existing VPC where the RDS PostgreSQL cluster will be created"
 }
 
 variable "subnet_ids" {
-  description = "List of subnet IDs for the RDS cluster"
+  description = "A list of existing subnet IDs where the RDS PostgreSQL cluster will be deployed"
+  type        = list(string)
+}
+
+variable "security_group_ids" {
+  description = "A list of existing security group IDs for the RDS PostgreSQL cluster"
   type        = list(string)
 }
