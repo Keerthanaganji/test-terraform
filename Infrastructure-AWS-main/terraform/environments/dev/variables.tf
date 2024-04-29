@@ -28,10 +28,6 @@ variable "glue_version" {
   description = "The Glue version to be used for the job"
 }
 
-variable "max_retries" {
-  description = "The maximum number of times to retry the job if it fails"
-}
-
 variable "timeout" {
   description = "The job timeout in minutes"
 }
