@@ -6,11 +6,11 @@ name              = "glue-job"
 connections            = ["connection1", "connection2"]
 description            = "My Glue job description"
 glue_version           = "1.0"
-max_retries            = 3
-timeout                = 60
+max_retries            = 2
+timeout                = 2880
 security_configuration = true
 worker_type            = "G.1X"
-number_of_workers      = 2
+number_of_workers      = 5
 python_version         = 3
 script_location        = "s3://mysamplebuckettest1119/provider_aws.txt"
 
