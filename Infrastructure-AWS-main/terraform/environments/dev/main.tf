@@ -28,21 +28,7 @@ module "aws_glue_job" {
   script_location = var.script_location 
   python_version  = var.python_version
 }
-##########################################################################################################
 
-#module "vpc" {
-#  source = "../../modules/postgres"
-
-#  cluster_identifier     = "example-cluster"
-#  db_master_username     = "admin"
-#  subnet_ids             = ["subnet-12345678", "subnet-23456789", "subnet-34567890"]
-#  instance_class         = "db.t3.micro"
-#  master_password        = "admin"
- # vpc_security_group_ids = ["sg-12345678"]
- # instance_identifier    = "example-instance"
-#  engine                 = "postgresql"
-#  engine_version         = "15.14"
-#}
 
 
 
