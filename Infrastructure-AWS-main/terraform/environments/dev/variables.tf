@@ -24,10 +24,6 @@ variable "description" {
   description = "The description of the Glue job"
 }
 
-variable "glue_version" {
-  description = "The Glue version to be used for the job"
-}
-
 variable "timeout" {
   description = "The job timeout in minutes"
 }
