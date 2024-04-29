@@ -35,11 +35,4 @@ resource "aws_glue_job" "job" {
     max_concurrent_runs = 5 # Limit to one concurrent run
   }
 }
-resource "aws_glue_connection" "example_connector" {
-  connection_type = "CUSTOM"
 
-  connection_properties = {
-    subnet_ids         = var.subnet_ids
-    security_group_ids = var.security_group_ids
-  }
-}
