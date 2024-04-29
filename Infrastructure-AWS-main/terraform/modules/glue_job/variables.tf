@@ -17,6 +17,10 @@ variable "max_retries" {
 variable "timeout" {
   description = "The job timeout in minutes"
 }
+variable "vpc_id" {
+  description = "The ID of the VPC where the Glue job will run"
+  type        = string
+}
 variable "subnet_ids" {
   description = "A list of existing subnet IDs where the RDS PostgreSQL cluster will be deployed"
   type        = list(string)
