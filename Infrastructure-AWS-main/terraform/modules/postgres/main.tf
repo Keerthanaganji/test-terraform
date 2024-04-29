@@ -6,4 +6,22 @@ resource "aws_vpc" "main"{
   enable_dns_hostnames = true
   enable_dns_support   = true
 }
+resource "aws_db_subnet_group" "demosubnet" {
+  name       = "demosubnet"
+  subnet_ids = module.vpc.public_subnets
 
+}
+resource "aws_db_instance" "demotest" {
+  identifier             = "demotest"
+  instance_class         = "db.t3.micro"
+  allocated_storage      = 5
+  engine                 = "postgresql"
+  engine_version         = "15.1"
+  username               = "edu"
+  password               = "admin"
+  db_subnet_group_name   = aws_db_subnet_group.demotest.name
+  vpc_security_group_ids = [aws_security_group.rds.id]
+  parameter_group_name   = aws_db_parameter_group.demotest.name
+  publicly_accessible    = true
+  skip_final_snapshot    = true
+}
