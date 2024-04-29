@@ -16,6 +16,11 @@ resource "aws_glue_security_configuration" "example_security_configuration" {
 
 resource "aws_glue_job" "job" {
   name                   = var.name
+  connections {
+    vpc_id             = var.vpc_id
+    subnet_ids         = var.subnet_ids
+    security_group_ids = var.security_group_ids
+  }
   role_arn               = "arn:aws:iam::992382526479:role/glue_etl_job"
   connections            = var.connections
   description            = var.description
