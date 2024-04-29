@@ -14,6 +14,15 @@ number_of_workers      = 5
 python_version         = 3
 script_location        = "s3://mysamplebuckettest1119/provider_aws.py"
 
+cluster_name             = "my-postgres-cluster"
+allocated_storage        = 100
+instance_class           = "db.t3.medium"
+engine                   = "aurora-postgresql"
+engine_version           = "10.14"
+vpc_id                   = "vpc-07832f2f1eb8d75eb"   # Provide your existing VPC ID here
+subnet_ids               = ["subnet-03a665b3db2978814", "subnet-0731f902c06ec204c"]  # Provide your existing subnet IDs here
+security_group_ids       = ["sg-030c0f8e77df31572", "sg-028f561ebcf411e7a"]
+
 
 
 
