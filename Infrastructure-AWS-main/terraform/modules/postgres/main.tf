@@ -2,7 +2,7 @@ resource "aws_rds_cluster" "testcluster" {
   cluster_identifier      = var.cluster_name
   allocated_storage       = var.allocated_storage
   db_cluster_parameter_group_name = "my_db_cluster_parameter_group"
-  db_subnet_group_name    = aws_db_subnet_group.my_db_subnet_group22.name
+  db_subnet_group_name    = "my_db_subnet_group22"
   vpc_security_group_ids  = var.security_group_ids
 
   engine           = var.engine
