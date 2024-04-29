@@ -1,5 +1,5 @@
-resource "aws_glue_security_configuration" "example_security_configuration" {
-  name = "example_glue_security_configuration"
+resource "aws_glue_security_configuration" "test_security_configuration1" {
+  name = "test_security_configuration1"
 
   encryption_configuration {
     cloudwatch_encryption {
@@ -22,7 +22,7 @@ resource "aws_glue_job" "job" {
   timeout                = var.timeout
   worker_type            = var.worker_type
   number_of_workers      = var.number_of_workers
-  security_configuration = aws_glue_security_configuration.example_security_configuration.name
+  security_configuration = aws_glue_security_configuration.test_security_configuration1.name
 
 
   command {
