@@ -25,12 +25,12 @@ resource "aws_glue_connection" "testconnection" {
   
   connection_properties = {
     "securityGroupIdList" = ["sg-030c0f8e77df31572", "sg-028f561ebcf411e7a"]
-    "subnetId" = var.subnet_id
+    "subnetId" = var.subnet_ids
     "AWS_REGION" = "eu-west-1"
   }
 
   physical_connection_requirements {
-    subnet_ids = var.subnet_id
+    subnet_ids = var.subnet_ids
     security_group_ids = var.security_group_ids
   }
 }
