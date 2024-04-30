@@ -8,7 +8,6 @@ description            = "My Glue job description"
 max_retries            = 2
 timeout                = 2880
 security_configuration = true
-worker_type            = "G.2X"
 number_of_workers      = 5
 python_version         = 3
 script_location        = "s3://your-bucket-name/scripts/example_job_script.py"
