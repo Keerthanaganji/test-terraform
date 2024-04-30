@@ -36,7 +36,6 @@ module "glue_connection" {
   source = "../../modules/glue_job"
 
   name = "testconnection"
-  s3_output_location = "s3://mybucket/path/to/output.py"
   security_group_ids = var.security_group_ids
   subnet_ids = var.subnet_ids
   vpc_id              = var.vpc_id
@@ -47,6 +46,8 @@ module "glue_connection" {
   max_retries         = 2
   timeout             = 2880
   description         = "My Glue job description"
+  script_location        = var.script_location
+}
 }
 
 ################################################################################
