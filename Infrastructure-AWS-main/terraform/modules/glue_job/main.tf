@@ -17,9 +17,7 @@ resource "aws_glue_job" "job" {
     max_concurrent_runs = 5 # Limit to one concurrent run
   }
 
-  connections {
-    connection_name = aws_glue_connection.testconnection.name
-  }
+  connections = = ["${aws_glue_connection.testconnection.name}"]
 }
 
 resource "aws_glue_connection" "testconnection" {
