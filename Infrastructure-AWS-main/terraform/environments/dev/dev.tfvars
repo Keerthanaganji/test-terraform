@@ -15,6 +15,8 @@ script_location        = "s3://your-bucket-name/scripts/example_job_script.py"
 vpc_id                   = "vpc-07832f2f1eb8d75eb"   # Provide your existing VPC ID here
 subnet_ids               = ["subnet-03a665b3db2978814", "subnet-0731f902c06ec204c"]  # Provide your existing subnet IDs here
 security_group_ids       = ["sg-030c0f8e77df31572", "sg-028f561ebcf411e7a"]
+use_glue_catalog         = true
+  
 
 cluster_name             = "my-postgres-cluster"
 allocated_storage        = 100
