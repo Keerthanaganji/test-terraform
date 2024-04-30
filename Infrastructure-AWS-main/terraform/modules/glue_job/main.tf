@@ -30,6 +30,7 @@ resource "aws_glue_connection" "testconnection" {
     "JDBC_CONNECTION_URL" = "jdbc:postgresql://database-1-instance-1.cxg48uoe0isl.eu-west-1.rds.amazonaws.com:5432/mydatabase"
     "USERNAME"            = "postgres"
     "PASSWORD"            = "Ganji1999"
+    "JDBC_DRIVER_CLASS_NAME"         = "org.postgresql.Driver"
     "JDBC_ENGINE"         = "postgres"
     "JDBC_ENGINE_VERSION" = "15.4"
   }
