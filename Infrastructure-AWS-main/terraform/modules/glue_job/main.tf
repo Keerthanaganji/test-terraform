@@ -27,7 +27,6 @@ resource "aws_glue_connection" "testconnection" {
   connection_properties = {
     "securityGroupIdList" = join(",", var.security_group_ids)
     "subnetId"            = join(",", var.subnet_ids)
-    "AWS_REGION"          = "eu-west-1"
     "JDBC_CONNECTION_URL" = "jdbc:postgresql://database-1-instance-1.cxg48uoe0isl.eu-west-1.rds.amazonaws.com:5432/mydatabase"
     "USERNAME"            = "postgres"
     "PASSWORD"            = "Ganji1999"
