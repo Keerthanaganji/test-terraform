@@ -32,23 +32,6 @@ module "aws_glue_job" {
   use_glue_catalog      = var.use_glue_catalog
 }
 
-module "glue_connection" {
-  source = "../../modules/glue_job"
-
-  name = "testconnection"
-  security_group_ids = var.security_group_ids
-  subnet_ids = var.subnet_ids
-  vpc_id              = var.vpc_id
-  connections         = ["connection1", "connection2"]
-  security_configuration = true
-  number_of_workers   = 5
-  worker_type         = "G.2X"
-  max_retries         = 2
-  timeout             = 2880
-  description         = "My Glue job description"
-  script_location        = var.script_location
-}
-
 ################################################################################
 # RDS Aurora Module
 ################################################################################
