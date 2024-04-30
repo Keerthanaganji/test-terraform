@@ -40,7 +40,6 @@ module "glue_connection" {
   security_group_ids = var.security_group_ids
   subnet_ids = var.subnet_ids
   vpc_id              = var.vpc_id
-  security_group_ids  = var.security_group_ids
   security_configuration = true
   number_of_workers   = 5
   worker_type         = "G.2X"
