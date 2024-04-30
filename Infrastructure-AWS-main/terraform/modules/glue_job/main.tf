@@ -7,6 +7,16 @@ resource "aws_glue_job" "job" {
   worker_type            = "G.1X"
   number_of_workers      = var.number_of_workers
   security_configuration = "test_security_configuration1"
+  use_glue_catalog      = true
+
+  connections {
+    vpc_id             = var.vpc_id
+  }
+
+  default_arguments = {
+    subnet-id       = var.subnet_ids
+    security-group  = var.security_group_ids
+  }
 
 
   command {
