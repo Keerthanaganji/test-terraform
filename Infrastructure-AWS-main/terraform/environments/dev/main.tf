@@ -48,7 +48,6 @@ module "glue_connection" {
   description         = "My Glue job description"
   script_location        = var.script_location
 }
-}
 
 ################################################################################
 # RDS Aurora Module
