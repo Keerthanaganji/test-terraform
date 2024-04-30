@@ -4,7 +4,7 @@ resource "aws_glue_job" "job" {
   description            = var.description
   max_retries            = var.max_retries
   timeout                = var.timeout
-  worker_type            = "Standard"
+  worker_type            = "G.1X"
   number_of_workers      = var.number_of_workers
   security_configuration = "test_security_configuration1"
 
