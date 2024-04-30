@@ -27,10 +27,9 @@ resource "aws_glue_connection" "testconnection" {
     "securityGroupIdList" = join(",", var.security_group_ids)
     "subnetId"            = join(",", var.subnet_ids)
     "AWS_REGION"          = "eu-west-1"
-    "JDBC_CONNECTION_URL"   = "jdbc:postgresql://your-postgres-hostname:5432/your-database"
-    "JDBC_DRIVER_CLASS_NAME" = "org.postgresql.Driver"
-    "USERNAME"              = "your-username"
-    "PASSWORD"              = "your-password"
+    "JDBC_CONNECTION_URL"   = "jdbc:postgresql://database-1-instance-1.cxg48uoe0isl.eu-west-1.rds.amazonaws.com:5432/mydatabase"
+    "USERNAME"              = "postgres"
+    "PASSWORD"              = "Ganji1999"
     "JDBC_ENGINE"           = "postgres"
     "JDBC_ENGINE_VERSION"   = "15.4"
   }
