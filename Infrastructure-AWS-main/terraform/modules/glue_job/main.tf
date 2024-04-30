@@ -9,16 +9,6 @@ resource "aws_glue_job" "job" {
   security_configuration = "test_security_configuration1"
   use_glue_catalog      = var.use_glue_catalog
 
-  connections {
-    vpc_id             = var.vpc_id
-  }
-
-  default_arguments = {
-    subnet-id       = var.subnet_ids
-    security-group  = var.security_group_ids
-  }
-
-
   command {
     script_location = "s3://your-bucket-name/scripts/example_job_script.py" 
     python_version   = var.python_version
@@ -26,6 +16,22 @@ resource "aws_glue_job" "job" {
 
   execution_property {
     max_concurrent_runs = 5 # Limit to one concurrent run
+  }
+}
+
+resource "aws_glue_connection" "testconnection" {
+  name = "testconnection"
+  description = "Example Glue connection"
+  
+  connection_properties = {
+    "securityGroupIdList" = ""
+    "subnetId" = var.subnet_id
+    "AWS_REGION" = "eu-west-1"
+  }
+
+  physical_connection_requirements {
+    subnet_ids = var.subnet_id
+    security_group_ids = var.security_group_ids
   }
 }
 
