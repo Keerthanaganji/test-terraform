@@ -7,7 +7,7 @@ resource "aws_glue_job" "job" {
   worker_type            = "G.1X"
   number_of_workers      = var.number_of_workers
   security_configuration = "test_security_configuration1"
-  use_glue_catalog      = true
+  use_glue_catalog      = var.use_glue_catalog
 
   connections {
     vpc_id             = var.vpc_id
