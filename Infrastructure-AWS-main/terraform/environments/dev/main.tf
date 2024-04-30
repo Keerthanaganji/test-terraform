@@ -32,6 +32,15 @@ module "aws_glue_job" {
   use_glue_catalog      = var.use_glue_catalog
 }
 
+module "glue_connection" {
+  source = "../../modules/glue_job"
+
+  name = "testconnection"
+  s3_output_location = "s3://mybucket/path/to/output.py"
+  security_groups_ids = ["sg-030c0f8e77df31572", "sg-028f561ebcf411e7a"]
+  subnet_id = ["subnet-03a665b3db2978814", "subnet-0731f902c06ec204c"]
+}
+
 ################################################################################
 # RDS Aurora Module
 ################################################################################
