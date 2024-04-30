@@ -24,9 +24,9 @@ resource "aws_glue_connection" "testconnection" {
   description = "Example Glue connection"
   
   connection_properties = {
-    "securityGroupIdList" = var.security_group_ids
-    "subnetId" = var.subnet_ids
-    "AWS_REGION" = "eu-west-1"
+    "securityGroupIdList" = join(",", var.security_group_ids)
+    "subnetId"            = join(",", var.subnet_ids)
+    "AWS_REGION"          = "eu-west-1"
   }
 
   physical_connection_requirements {
