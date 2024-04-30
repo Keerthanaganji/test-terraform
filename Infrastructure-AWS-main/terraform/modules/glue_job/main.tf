@@ -1,6 +1,6 @@
 resource "aws_glue_job" "job" {
   name                   = var.name
-  role_arn               = "arn:aws:iam::992382526479:role/glue_etl_job"
+  role_arn               = "arn:aws:iam::992382526479:role/glue-etl-job"
   description            = var.description
   max_retries            = var.max_retries
   timeout                = var.timeout
