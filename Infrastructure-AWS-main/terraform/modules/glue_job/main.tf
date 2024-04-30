@@ -10,7 +10,6 @@ resource "aws_glue_job" "job" {
 
 
   command {
-    name             = "pythonshell"
     script_location = "s3://your-bucket-name/scripts/example_job_script.py" 
     python_version   = var.python_version
   }
