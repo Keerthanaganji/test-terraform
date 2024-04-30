@@ -25,7 +25,6 @@ resource "aws_glue_connection" "testconnection" {
   description = "Example Glue connection"
   
   connection_properties = {
-    "securityGroupIdList" = join(",", var.security_group_ids)
     "JDBC_CONNECTION_URL" = "jdbc:postgresql://database-1-instance-1.cxg48uoe0isl.eu-west-1.rds.amazonaws.com:5432/mydatabase"
     "USERNAME"            = "postgres"
     "PASSWORD"            = "Ganji1999"
