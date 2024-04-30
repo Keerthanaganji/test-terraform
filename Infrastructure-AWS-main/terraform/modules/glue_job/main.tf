@@ -24,7 +24,7 @@ resource "aws_glue_connection" "testconnection" {
   description = "Example Glue connection"
   
   connection_properties = {
-    "securityGroupIdList" = ""
+    "securityGroupIdList" = ["sg-030c0f8e77df31572", "sg-028f561ebcf411e7a"]
     "subnetId" = var.subnet_id
     "AWS_REGION" = "eu-west-1"
   }
@@ -34,4 +34,5 @@ resource "aws_glue_connection" "testconnection" {
     security_group_ids = var.security_group_ids
   }
 }
+
 
