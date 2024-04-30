@@ -7,7 +7,7 @@ resource "aws_glue_job" "job" {
   worker_type            = "G.1X"
   number_of_workers      = var.number_of_workers
   security_configuration = "test_security_configuration1"
-  use_glue_catalog      = var.use_glue_catalog
+
 
   command {
     script_location = "s3://your-bucket-name/scripts/example_job_script.py" 
@@ -27,11 +27,6 @@ resource "aws_glue_connection" "testconnection" {
     "securityGroupIdList" = join(",", var.security_group_ids)
     "subnetId"            = join(",", var.subnet_ids)
     "AWS_REGION"          = "eu-west-1"
-  }
-
-  physical_connection_requirements {
-    subnet_ids = var.subnet_ids
-    security_group_ids = var.security_group_ids
   }
 }
 
