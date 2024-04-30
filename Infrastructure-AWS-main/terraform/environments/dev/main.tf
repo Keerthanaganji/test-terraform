@@ -21,7 +21,7 @@ module "aws_glue_job" {
   description            = var.description
   max_retries            = var.max_retries
   timeout                = var.timeout
-  worker_type            = "Standard"
+  worker_type            = var.worker_type
   number_of_workers      = var.number_of_workers
   script_location = var.script_location 
   security_configuration = "test_security_configuration1"  # Assuming you have a security configuration created
