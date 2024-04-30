@@ -42,6 +42,11 @@ variable "worker_type" {
 variable "number_of_workers" {
   description = "The number of workers to allocate for the Glue job"
 }
+variable "use_glue_catalog" {
+  description = "Flag to indicate whether to use Glue Data Catalog as Hive metastore"
+  type        = bool
+  default     = true
+}
 
 variable "script_location" {
   description = "The S3 path to the script that the Glue job runs"
