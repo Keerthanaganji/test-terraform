@@ -29,7 +29,7 @@ module "aws_glue_job" {
   vpc_id                   = "vpc-07832f2f1eb8d75eb"
   subnet_ids               = ["subnet-03a665b3db2978814", "subnet-0731f902c06ec204c"]  # Provide your existing subnet IDs here
   security_group_ids       = ["sg-030c0f8e77df31572", "sg-028f561ebcf411e7a"]
-  use_glue_catalog      = true
+  use_glue_catalog      = var.use_glue_catalog
 }
 
 ################################################################################
