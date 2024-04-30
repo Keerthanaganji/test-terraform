@@ -35,6 +35,9 @@ variable "max_retries" {
 variable "security_configuration" {
   description = "The ID of an existing security configuration for the Glue job"
 }
+variable "worker_type" {
+  type    = string
+}
 
 variable "number_of_workers" {
   description = "The number of workers to allocate for the Glue job"
