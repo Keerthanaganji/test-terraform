@@ -17,21 +17,4 @@ resource "aws_glue_job" "job" {
     max_concurrent_runs = 5 # Limit to one concurrent run
   }
 
-  connections = ["${aws_glue_connection.testconnection.name}"]
-}
-
-resource "aws_glue_connection" "testconnection" {
-  name        = "testconnection"
-  description = "Example Glue connection"
-  
-  connection_properties = {
-    "HOST"                 = "database-1-instance-1.cxg48uoe0isl.eu-west-1.rds.amazonaws.com"
-    "PORT"                 = "5432"
-    "JDBC_CONNECTION_URL" = "jdbc:postgresql://database-1-instance-1.cxg48uoe0isl.eu-west-1.rds.amazonaws.com:5432/mydatabase"
-    "USERNAME"            = "postgres"
-    "PASSWORD"            = "Ganji1999"
-    "JDBC_DRIVER_CLASS_NAME"         = "org.postgresql.Driver"
-    "JDBC_ENGINE"         = "postgres"
-    "JDBC_ENGINE_VERSION" = "15.4"
-  }
 }
