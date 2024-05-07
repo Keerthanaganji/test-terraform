@@ -11,6 +11,11 @@ resource "aws_glue_job" "job" {
   command {
     script_location = "s3://your-bucket-name/scripts/example_job_script.py" 
     python_version   = var.python_version
+    "--extra-py-files"                        = length(var.extra_py_files) > 0 ? join(",", var.extra_py_files) : null
+    "--extra-jars"                            = length(var.extra_jars) > 0 ? join(",", var.extra_jars) : null
+    "--user-jars-first"                       = var.user_jars_first
+    "--use-postgres-driver"                   = var.use_postgres_driver
+    "--extra-files"                           = length(var.extra_files) > 0 ? join(",", var.extra_files) : null
   }
 
   execution_property {
