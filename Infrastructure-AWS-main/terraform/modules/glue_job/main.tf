@@ -37,3 +37,7 @@ variable "database" {
   description = "Name of the database"
   default     = "mydatabase"
 }
+variable "kms_key_arn" {
+  type        = string
+  description = "The ARN of your KMS key in AWS"
+}
