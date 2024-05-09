@@ -23,3 +23,17 @@ resource "aws_glue_job" "job" {
   }
 
 }
+  type        = string
+  description = "(optional) describe your variable"
+  default     = "SSE_KMS"
+}
+
+variable "bucket_name" {
+  type = string
+}
+
+variable "database" {
+  type        = string
+  description = "Name of the database"
+  default     = "mydatabase"
+}
