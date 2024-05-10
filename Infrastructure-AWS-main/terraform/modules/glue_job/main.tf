@@ -41,3 +41,8 @@ variable "kms_key_arn" {
   type        = string
   description = "The ARN of your KMS key in AWS"
 }
+
+resource "aws_glue_crawler" "example" {database_name = aws_glue_catalog_database.example.name
+  name          = "example"role          = aws_iam_role.example.arn
+
+  s3_target {path = "s3://${aws_s3_bucket.example.bucket}"}}
