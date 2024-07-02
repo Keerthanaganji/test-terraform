@@ -1,6 +1,5 @@
 resource "aws_glue_job" "datahub_to_ref" {
   name                   = var.datahub_to_ref
-  role_arn               = var.role_arn
   description            = var.description
   max_retries            = var.max_retries
   timeout                = var.timeout
