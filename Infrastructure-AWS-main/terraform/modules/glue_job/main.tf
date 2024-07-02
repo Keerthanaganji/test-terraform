@@ -1,48 +1,22 @@
-resource "aws_glue_job" "job" {
-  name                   = var.name
-  role_arn               = "arn:aws:iam::992382526479:role/glue-etl-job"
+resource "aws_glue_job" "datahub_to_ref" {
+  name                   = var.datahub_to_ref
+  role_arn               = var.role_arn
   description            = var.description
   max_retries            = var.max_retries
   timeout                = var.timeout
-  worker_type            = "G.1X"
-  number_of_workers      = var.number_of_workers
-  security_configuration = "test_security_configuration1"
+  max_capacity           = var.max_capacity
+}
 
-  command {
-    script_location = "s3://your-bucket-name/scripts/example_job_script.py" 
-    python_version   = var.python_version
-    "--extra-py-files"                        = length(var.extra_py_files) > 0 ? join(",", var.extra_py_files) : null
-    "--extra-jars"                            = length(var.extra_jars) > 0 ? join(",", var.extra_jars) : null
-    "--user-jars-first"                       = var.user_jars_first
-    "--use-postgres-driver"                   = var.use_postgres_driver
-    "--extra-files"                           = length(var.extra_files) > 0 ? join(",", var.extra_files) : null
+resource "aws_glue_trigger" "example_trigger" {
+  name = "example-trigger"
+  type = "ON_DEMAND"
+
+  actions {
+    job_name = aws_glue_job.example_job.name
+    arguments = {
+      "--object_key"       = "your_object_key_value"
+      "--max_workers_key"  = "your_max_workers_key_value"
+      "--bucket_key"       = "your_bucket_key_value"
+    }
   }
-
-  execution_property {
-    max_concurrent_runs = 5 # Limit to one concurrent run
-  }
-
 }
-  type        = string
-  description = "(optional) describe your variable"
-  default     = "SSE_KMS"
-}
-
-variable "bucket_name" {
-  type = string
-}
-
-variable "database" {
-  type        = string
-  description = "Name of the database"
-  default     = "mydatabase"
-}
-variable "kms_key_arn" {
-  type        = string
-  description = "The ARN of your KMS key in AWS"
-}
-
-resource "aws_glue_crawler" "example" {database_name = aws_glue_catalog_database.example.name
-  name          = "example"role          = aws_iam_role.example.arn
-
-  s3_target {path = "s3://${aws_s3_bucket.example.bucket}"}}
