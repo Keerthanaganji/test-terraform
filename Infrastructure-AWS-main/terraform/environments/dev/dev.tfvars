@@ -2,7 +2,7 @@ bucket_name_first = "artifact-bucket-infratest"
 bucket_name_log = "log-bucket-infratest"
 region = "eu-west-1"
 
-datahub_to_ref         = "example-glue_job"
+name         = "example-glue_job"
 description            = "My Glue job description"
 max_retries            = 2
 timeout                = 2880
