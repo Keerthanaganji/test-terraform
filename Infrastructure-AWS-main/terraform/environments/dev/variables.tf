@@ -1,9 +1,5 @@
-variable "datahub_to_ref" {
+variable "name" {
   description = "The name of the Glue job"
-}
-
-variable "max_capacity" {
-  description = "The list of connections used by the Glue job"
 }
 
 variable "description" {
