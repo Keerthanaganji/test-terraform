@@ -1,4 +1,4 @@
-variable "name" {
+variable "datahub_to_ref" {
   description = "The name of the Glue job"
 }
 
