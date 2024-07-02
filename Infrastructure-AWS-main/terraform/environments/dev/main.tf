@@ -16,7 +16,7 @@ provider "aws" {
 module "aws_glue_job" {
   source = "../../modules/glue_job"
 
-  name              = var.datahub_to_ref
+  name              = var.name
   description            = var.description
   max_retries            = var.max_retries
   timeout                = var.timeout
