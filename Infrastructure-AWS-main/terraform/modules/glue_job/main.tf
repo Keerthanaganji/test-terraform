@@ -3,7 +3,6 @@ resource "aws_glue_job" "datahub_to_ref" {
   description            = var.description
   max_retries            = var.max_retries
   timeout                = var.timeout
-  max_capacity           = var.max_capacity
 }
 
 resource "aws_glue_trigger" "example_trigger" {
