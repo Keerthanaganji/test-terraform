@@ -13,3 +13,8 @@ variable "max_retries" {
 variable "timeout" {
   description = "The job timeout in minutes"
 }
+
+variable "region" {
+  description = "The job timeout in minutes"
+}
+
