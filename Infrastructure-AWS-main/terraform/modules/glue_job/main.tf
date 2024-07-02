@@ -8,7 +8,7 @@ resource "aws_glue_job" "datahub_to_ref" {
 
   command {
     name               = "python"
-    script_location    = path/glue_job/
+    script_location    = "path/glue_job/"
     python_version     = 3.9
 }
 }
