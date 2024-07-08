@@ -1,41 +1,54 @@
-variable "cluster_name" {
-  description = "The name of the RDS PostgreSQL cluster"
+variable "environment" {
+  description = "The environment name"
 }
 
-variable "allocated_storage" {
-  description = "The amount of storage (in GB) to be initially allocated for the database"
-  default     = 100
+variable "cluster_id" {
+  description = "The identifier for the DB cluster"
 }
 
-variable "instance_class" {
-  description = "The instance type to use for the RDS PostgreSQL cluster"
-  default     = "db.t3.medium"
+variable "region" {
+  description = "The AWS region"
 }
 
 variable "engine" {
-  description = "The database engine to use for the RDS PostgreSQL cluster"
-  default     = "aurora-postgresql"
+  description = "The Cluster Engine"
+}
+
+variable "engine_mode" {
+  description = "The Cluster engine_mode"
 }
 
 variable "engine_version" {
-  description = "The version of the database engine to use for the RDS PostgreSQL cluster"
-  default     = "10.14"
+  description = "The Cluster engine_version"
 }
 
-variable "vpc_id" {
-  description = "The ID of the existing VPC where the RDS PostgreSQL cluster will be created"
+variable "database_name" {
+  description = "The Cluster database_name"
 }
 
-variable "subnet_ids" {
-  description = "A list of existing subnet IDs where the RDS PostgreSQL cluster will be deployed"
-  type        = list(string)
+variable "master_username" {
+  description = "The Cluster master_username"
 }
 
-variable "security_group_ids" {
-  description = "A list of existing security group IDs for the RDS PostgreSQL cluster"
-  type        = list(string)
+variable "db_subnet_group_name" {
+  description = "The Cluster db_subnet_group_name"
 }
-variable "subnet_group_name" {
-  description = "The name of the DB subnet group"
-  type        = string
+
+variable "vpc_security_group_ids" {
+  description = "The Cluster vpc_security_group_ids"
+  type = list(string)
+}
+
+variable "enabled_cloudwatch_logs_exports" {
+  description = "The Cluster enabled_cloudwatch_logs_exports"
+  type = list(string)
+}
+
+variable "db_parameter_group_name" {
+  description = "The Cluster db_parameter_group_name"
+}
+
+variable "postgresql_subnet_group_ids" {
+  description = "The postgresql_subnet_group_ids"
+  type = list(string)
 }
